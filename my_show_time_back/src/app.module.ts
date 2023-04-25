@@ -3,18 +3,10 @@ import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-<<<<<<< HEAD
-// import { MongooseModule } from '@nestjs/mongoose';
-// import { ServeStaticModule } from '@nestjs/serve-static';
-// import { JwtModule } from '@nestjs/jwt';
-// import { secret } from './utils/constants';
-// import { join } from 'path/posix';
-=======
 
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { JwtModule } from '@nestjs/jwt';
 import { join } from 'path/posix';
->>>>>>> main
 
 import { ConcertModule } from './concert/concert.module';
 import { CategoryModule } from './categories/category.module';
