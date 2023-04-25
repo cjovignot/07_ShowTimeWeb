@@ -44,14 +44,14 @@ background-color: #000;
 
 .logo {
 	display: flex;
-  padding: 1%;
+  	padding: 1%;
 	justify-content: center;
 	align-items: center;
 }
 
 .logo img {
 	width: 120px;
-  height: auto;
+  	height: auto;
 	border-radius: 50px;
 }
 
@@ -170,7 +170,7 @@ background-color: #000;
 
 @media (prefers-reduced-motion: no-preference) {
   .home-logo {
-    animation: home-logo-spin infinite 1500ms linear;
+    animation: home-logo-spin infinite 1.5s linear;
   }
 }
 
