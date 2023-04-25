@@ -9,6 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { secret } from './utils/constants';
 import { join } from 'path/posix';
 import { ConcertModule } from './concert/concert.module';
+import { CategoryModule } from './categories/category.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ConcertModule } from './concert/concert.module';
     JwtModule.register({ secret, signOptions: { expiresIn: '2h' } }),
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ConcertModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
