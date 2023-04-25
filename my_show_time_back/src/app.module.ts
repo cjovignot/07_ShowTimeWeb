@@ -13,7 +13,7 @@ import { CategoryModule } from './categories/category.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://showtime_superadmin:showttimeadmin@cluster0.sji4m3i.mongodb.net/Cluster0?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('mongodb+srv://showtime_superadmin:showttimeadmin@cluster0.sji4m3i.mongodb.net/ShowTime?retryWrites=true&w=majority'),
     JwtModule.register({ secret, signOptions: { expiresIn: '2h' } }),
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ConcertModule,
