@@ -22,12 +22,17 @@
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/passport": "^9.0.3",
     "@nestjs/platform-express": "^9.0.0",
+    "bcryptjs": "^2.4.3",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
   "devDependencies": {
-    "@nestjs/cli": "^9.0.0",
+    "@nestjs/cli": "^9.4.2",
     "@nestjs/jwt": "^10.0.3",
     "@nestjs/mongoose": "^9.2.2",
     "@nestjs/schematics": "^9.0.0",
@@ -40,6 +45,7 @@
     "@types/node": "18.15.11",
     "@types/supertest": "^2.0.11",
     "@types/uuid": "^9.0.1",
+    "@types/validator": "^13.7.15",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "bcrypt": "^5.1.0",
