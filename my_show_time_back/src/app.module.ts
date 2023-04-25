@@ -8,8 +8,12 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { JwtModule } from '@nestjs/jwt';
 import { secret } from './utils/constants';
 import { join } from 'path/posix';
+
 import { ConcertModule } from './concert/concert.module';
 import { CategoryModule } from './categories/category.module';
+import { ItemModule } from './item/item.module';
+import { UserModule } from './user/user.module';
+import { TicketModule } from './ticket/ticket.module';
 
 @Module({
   imports: [
@@ -18,6 +22,15 @@ import { CategoryModule } from './categories/category.module';
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ConcertModule,
     CategoryModule,
+    ItemModule,UserModule,TicketModule,
+
+    JwtModule.register({
+      secret,
+      signOptions: { expiresIn: '2h' },
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
