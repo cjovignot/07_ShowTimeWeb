@@ -4,16 +4,16 @@ import { useRouter } from 'next/router';
 
 function UnitConcert() {
     const router = useRouter();
-    const [concert, setConcert] = useState(null);
+    const [concert, setConcert] = useState({});
 
     useEffect(() => {
         if (router.query.id) {
-            axios.get('http://localhost:3000/concerts/${router.query.id}')
+            axios.get('http://localhost:3000/concerts/' + router.query.id)
                 .then(response => setConcert(response.data))
                 .catch(error => console.error(error));
         }   
         }, [router.query.id]);
-
+        console.log(concert);
     if (!concert) {
     return <div>Not found</div>;
     }
