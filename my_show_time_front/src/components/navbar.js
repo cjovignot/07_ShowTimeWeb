@@ -66,6 +66,9 @@ const Navbar = () => {
             <li>
               <Link href="/about">About Us</Link>
             </li>
+            <li>
+              <Link href="/admin">Admin</Link>
+            </li>
           </ul>
           <div className="rightNav">
             <input type="text" name="search" id="search" />

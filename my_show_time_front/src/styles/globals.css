@@ -253,3 +253,99 @@ code {
 .button-group button:hover {
 	background-color: #0055b8;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ADMIN */
+.admin_concert a {
+	text-decoration: none;
+	color: black;
+}
+.admin_concert .unit_concert {
+	display: flex;
+	margin: 40px auto;
+	padding: 30px;
+	border: 1.7px black solid;
+	max-width: 60%;
+	min-width: 600px;
+	border-radius: 5px;
+}
+.admin_concert .unit_concert img {
+	height: 150px;
+	width: 100%;
+}
+.admin_concert .admin_buttons {
+	display: flex;
+	flex-direction: column;
+	margin: 20px 10px;
+}
+.admin_concert .admin_buttons button {
+	margin: auto;
+	width: 80px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px black solid;
+}
