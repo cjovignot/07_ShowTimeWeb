@@ -1,4 +1,4 @@
-import Home_content from '@/components/Home_content';
+import Home_content from '@/components/home_content';
 import Layout from '../components/layout'
 
 
