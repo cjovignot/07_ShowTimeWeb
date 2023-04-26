@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Login from "./login";
+import Profile from "./profile_comp";
+import Cookie from "js-cookie";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
-
+  const [showProfile, setShowProfile] = useState(false);
+  const router = useRouter();
   const handleLoginToggle = () => {
     setShowLogin((prev) => !prev);
   };
@@ -26,10 +30,16 @@ const Navbar = () => {
     setShowLogin(false);
   };
 
+  const handleProfileClick = () => {
+    setShowProfile(true);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    Cookie.remove("userInfo");
     setUser(null);
+    router.push("/");
   };
 
   return (
@@ -57,14 +67,14 @@ const Navbar = () => {
                     {user.firstname[0]}
                     {user.lastname[0]}
                   </span>
+                  <Link href="/user_profile">
+                    <button>Profile</button>
+                  </Link>
                   <button onClick={handleLogout}>Logout</button>
                 </>
               ) : (
                 <button onClick={handleLoginToggle}>Login</button>
               )}
-            </li>
-            <li>
-              <Link href="/about">About Us</Link>
             </li>
           </ul>
           <div className="rightNav">
@@ -73,7 +83,9 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
+
       {showLogin && <Login onClose={handleLoginClose} />}
+      {showProfile && user && <Profile user={user} />}
     </div>
   );
 };

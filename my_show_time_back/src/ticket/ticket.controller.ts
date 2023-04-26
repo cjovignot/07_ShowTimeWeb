@@ -1,9 +1,8 @@
 // src/ticket/ticket.controller.ts
 
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, Query } from '@nestjs/common';
 import { TicketService } from './ticket.service';
 import { Ticket } from './ticket.schema';
-import { CreateTicketDTO } from './create-ticket.dto'; // Add this import
 
 @Controller('ticket')
 export class TicketController {
@@ -16,8 +15,8 @@ export class TicketController {
 
  
   @Get()
-  findAll(): Promise<Ticket[]> {
-    return this.ticketService.findAll();
+  findAll(@Query() query: any): Promise<Ticket[]> {
+    return this.ticketService.findAll(query);
   }
 
   @Get(':id')

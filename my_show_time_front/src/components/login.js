@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Cookie from "js-cookie";
 const Login = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +22,16 @@ const Login = ({ onClose }) => {
       } = await response.json(); // Extract the correct user object
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
+
+      Cookie.set(
+        "userInfo",
+        JSON.stringify({
+          _id: user._id,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          email: user.email,
+        })
+      );
       onClose();
     } else {
       setErrorMessage("Wrong email or password.");
