@@ -15,7 +15,7 @@ export class Concert {
   artist_name: string;
 
   @Prop({ default: null })
-  category_id: number;
+  category_id: string;
 
   @Prop({ default: null })
   location: string;
