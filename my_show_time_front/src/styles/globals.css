@@ -12,11 +12,6 @@ code {
 		monospace;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
 .navbar {
 	display: flex;
 	align-items: center;
@@ -158,10 +153,6 @@ code {
 	justify-content: center;
 	color: #fff;
 }
-
-/* .App {
-  text-align: center;
-} */
 
 .home-logo {
 	height: 10vmin;
