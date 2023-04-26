@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Concert from './concertlist';
+import Concert from './test';
 
 
 
@@ -18,18 +18,11 @@ function admin_concerts() {
   console.log(dataConcerts);
 
   return (
-    <section class="admin_concert">
-      <h1>This is the Concerts Manager Page</h1>
-      
       <div>
         {dataConcerts && dataConcerts.map((item, i) => (
-          <Link href="/concerts/:id">
-            <Concert />            
-          </Link>
+          <Concert />
         ))}
       </div>
-    </section>
-
   );
 };
   

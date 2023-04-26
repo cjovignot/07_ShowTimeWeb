@@ -1,5 +1,6 @@
 // src/user/user.schema.ts
 
+import { UpdateWithAggregationPipeline } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import * as bcrypt from 'bcryptjs';
@@ -64,5 +65,31 @@ UserSchema.pre<UserDocument>('save', async function(next) {
 
 UserSchema.pre<UserDocument>('updateOne', function(next) {
   this.set({ lastUpdated: new Date() });
+  next();
+});
+
+UserSchema.pre('findOneAndUpdate', async function (next) {
+  const update: any = this.getUpdate();
+  let passwordToUpdate;
+
+  if ('password' in update) {
+    passwordToUpdate = update.password;
+  } else if (update.$set && 'password' in update.$set) {
+    passwordToUpdate = update.$set.password;
+  }
+
+  if (passwordToUpdate) {
+    try {
+      const hashedPassword = await bcrypt.hash(passwordToUpdate, SALT_ROUNDS);
+      if (update.$set) {
+        update.$set.password = hashedPassword;
+      } else {
+        update.password = hashedPassword;
+      }
+    } catch (err) {
+      next(err);
+    }
+  }
+  
   next();
 });

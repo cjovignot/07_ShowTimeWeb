@@ -4,63 +4,64 @@ import axios from 'axios';
 
 
 
-function admin_concerts() {
-  const [dataConcerts, setDataConcerts] = useState(null);
+
+const handleDelete = async (itemId) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/concerts/${itemId}`);
+    console.log(response.data);
+    setItems(items.filter((item) => item._id !== itemId));
+    // handle success response
+  } catch (error) {
+    console.error(error);
+    // handle error response
+  }
+  window.location.reload(false);
+};
+
+function adminConcert() {
+  const [dataConcert, setdataConcert] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:3000/concerts')
-      .then(response => setDataConcerts(response.data))
+      .then(response => setdataConcert(response.data))
       .then((response) => response)
       .catch(error => console.error(error));
   }, []);
-  console.log(dataConcerts);
+  // console.log(data);
+  console.log(dataConcert);
 
   return (
-    <section class="admin_concert">
-      <h1>This is the Concerts Manager Page</h1>
-      
-      <div>
-        {dataConcerts && dataConcerts.map((item, i) => (
-          <Link href="/concerts/:id">
-            <div class="unit_concert">
-              <div key={i} class="left_side">
-                <h2 key={i}>
-                  { item.name }
-                </h2>
-                
-                <h4 key={i}>
-                  { item.concert_date }DATE
-                </h4>
-                
-                <div key={i}>
-                  { item.location }
-                </div>
-                
-                <h3 key={i}>
-                  { item.price } €
-                </h3>
-
-                <div key={i}>
-                  Places left : { (item.place_nbr)-(1) }
-                </div>
-              </div>
-
-                
-                <img key={i} src={ item.concert_img }></img>
-              
-                <div class="admin_buttons">
-                    {/* <button>EDIT</button> */}
-                    <button>DELETE</button>
-                </div>
-            </div>
-            
-          </Link>
-        ))}
-      </div>
-    </section>
+    <div class="admin_concert">
+      <Link href="/admin"><button>Back</button></Link>
+      <h1>CONCERTS MANAGER PAGE</h1>
+        <table>
+            <thead>
+              <tr>
+                <th><h3>CONCERT</h3></th>
+                <th><h3>DATE</h3></th>
+                <th><h3>LOCATION</h3></th>
+                <th><h3>PRICE</h3></th>
+                <th><h3>PLACES</h3></th>
+                <th><h3>IMAGE</h3></th>
+              </tr>
+            </thead>
+            {dataConcert && dataConcert.map((item, i) => (
+              <tbody>
+                <Link href={{ pathname: "admin/concerts", query: { id: item._id } }}><td key={i}>{ item.name }</td></Link>
+                <td key={i}>{ item.concert_date }</td>
+                <td key={i}>{ item.location }</td>
+                <td key={i}>{ item.price } €</td>
+                <td key={i}>{ item.places_nbr }</td>
+                <td key={i}>{ item.concert_img }</td>
+                <td><button>EDIT</button></td>
+                <td><button onClick={() => handleDelete(item._id)}>DELETE</button></td>
+              </tbody>
+              ))
+            }
+        </table>
+    </div>
 
   );
 };
   
-export default admin_concerts;
-  
+export default adminConcert;

@@ -44,42 +44,39 @@ function adminInfos() {
     
     return (
         <div class="admin_infos">
-                <h1>ADMINISTRATOR PANEL</h1>
+            <h1>ADMINISTRATOR PANEL</h1>
             <table>
                 <tbody>
                     <thead>
                         <tr>
                             <Link href="/admin/categories/">
-                            <th colspan="2">CATEGORIES</th>
+                            <th colspan="2">GENRES :
+                                <span> </span>
+                                { dataCategories }
+                            </th>
                             </Link>
-                            <td>{ dataCategories }</td>
                         </tr>
                     </thead>
 
                     <thead>
                         <tr>
                             <Link href="/admin/concerts/">
-                            <th colspan="2">CONCERTS</th>
+                            <th colspan="2">CONCERTS :
+                                <span> </span>
+                                { dataConcerts }
+                                </th>
                             </Link>
-                            <td>{ dataConcerts }</td>
                         </tr>
                     </thead>
 
                     <thead>
                         <tr>
                             <Link href="/admin/users/">
-                            <th colspan="2">USERS</th>
+                            <th colspan="2">USERS :
+                                <span> </span>
+                                { dataUsers }
+                                </th>
                             </Link>
-                            <td>{ dataUsers }</td>
-                        </tr>
-                    </thead>
-
-                    <thead>
-                        <tr>
-                            <Link href="/admin/admins/">
-                            <th colspan="2">ADMINS</th>
-                            </Link>
-                            <td>{ dataAdmins }</td>
                         </tr>
                     </thead>
                 </tbody>

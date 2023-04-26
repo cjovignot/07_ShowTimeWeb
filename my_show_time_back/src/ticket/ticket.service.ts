@@ -17,8 +17,8 @@ export class TicketService {
     return newTicket.save();
   }
 
-  async findAll(): Promise<Ticket[]> {
-    return this.ticketModel.find().exec();
+  async findAll(query: any): Promise<Ticket[]> {
+    return this.ticketModel.find(query).exec();
   }
 
   async findOne(id: string): Promise<Ticket> {
