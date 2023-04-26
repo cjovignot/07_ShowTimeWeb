@@ -1,11 +1,14 @@
 // src/user/user.controller.ts
-
-import {Body,Controller,Delete,Get,Param,Post,Put,Request,UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, Request } from '@nestjs/common';
+import { Request as ExpressRequest } from 'express';
 import { UserService } from './user.service';
 import { User } from './user.schema';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from '../auth/auth.service';
 
+interface RequestWithUser extends ExpressRequest {
+  user?: any;
+}
 
 @Controller('users')
 export class UserController {
@@ -17,8 +20,16 @@ export class UserController {
   @UseGuards(AuthGuard('local'))
   @Post('login')
   async login(@Request() req) {
+    console.log('Login request:', req.method, req.url, req.body);
     return this.authService.login(req.user);
   }
+
+//   @Post('test-local-strategy')
+//   async testLocalStrategy(@Body() body: any) {
+//   console.log('Test LocalStrategy request:', body);
+//   const user = await this.authService.validateUser(body.email, body.password);
+//   return { user };
+// }
 
   @Post('signup')
   async create(@Body() user: User): Promise<User> {
