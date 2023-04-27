@@ -29,9 +29,6 @@ function adminCategories() {
   }, []);
       // console.log(dataCategories);
 
-
-
-
   return (
     <div class="admin_concert">
       <Link href="/admin"><button>Back</button></Link>

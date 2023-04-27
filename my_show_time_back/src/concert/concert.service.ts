@@ -14,8 +14,8 @@ export class ConcertService {
     return newConcert.save();
   }
 
-  async findAll(): Promise<Concert[]> {
-    return this.concertModel.find().exec();
+  async findAll(query: any): Promise<Concert[]> {
+    return this.concertModel.find(query).exec();
   }
 
   async findById(id: string): Promise<Concert> {

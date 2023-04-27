@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { Concert } from './concert.schema';
 import { ConcertService } from './concert.service';
@@ -15,8 +16,8 @@ export class ConcertController {
   constructor(private concertService: ConcertService) {}
 
   @Get()
-  async findAll(): Promise<Concert[]> {
-    return this.concertService.findAll();
+  async findAll(@Query() query: any): Promise<Concert[]> {
+    return this.concertService.findAll(query);
   }
 
   @Get(':id')

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import concertCategory from './childConcertComp';
 
 const handleDelete = async (itemId) => {
   try {
@@ -25,7 +26,7 @@ function categoryConcerts({ category }) {
       .catch(error => console.error(error));
     }, [category._id]);
 
-  // console.log("NAME", categoryConcerts);
+  console.log("NAME", categoryConcerts);
 
   return (
     <tbody>
