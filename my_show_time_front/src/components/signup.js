@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import styles from './signup.module.css';
 
 
@@ -10,6 +12,9 @@ function SignupComponent() {
 	const [email , setEmail] = useState('');
 	const [password , setPassword] = useState('');
 	const [confPassword , setConfPassword] = useState('');
+	const router = useRouter()
+	
+	
 
 	// function to update state of firstname with
 	// value enter by user in form
@@ -35,39 +40,31 @@ function SignupComponent() {
 	}
 	// below function will be called when user
 	// click on submit button .
-	const handleSubmit=async (e)=>{
-	if(password!=confPassword)
-	{
-		// if 'password' and 'confirm password'
-		// does not match.
-		alert("password Not Match");
-	}
-	else{
-		// affichage alert box avec utilisateur
-		// 'name' and 'email' détails .
-		
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+	
+		if (password !== confPassword) {
+			alert("password Not Match");
+		} else {
 
-		// Fetch
-
-
-			e.preventDefault();
-		  
-
-
-
-			const response = await fetch("http://localhost:3000/users/signup", {
-			  method: "POST",
-			  headers: { "Content-Type": "application/json" },
-			  body: JSON.stringify({ firstname, lastname, email, password }),
-			});
-			console.log(response);
+				const response = await fetch("http://localhost:3000/users/signup", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ firstname, lastname, email, password }),
+				});
+	
+				if (response.ok) {
+					const responseData = await response.json(); // stocker la réponse API dans la variable responseData
+					console.log(responseData);
+					router.push('/');
+				} else {
+					const error = await response.json();
+					alert(error.message);
+				}
+		}
+	};
 
 
-	}
-	e.preventDefault();
-
-
-	}
 return (
 	<div className={styles.App}>
 	<header className={styles.AppHeader}>
@@ -119,13 +116,13 @@ return (
 					handleConfPasswordChange() function will be called.*/}
 		<input className = {styles.submitbutton} type="submit" value="Submit"/>
 
-		
+	
 	
 	</form>
+
 	</header>
 	</div>
 );
-}
-
+};
 export default SignupComponent;
 

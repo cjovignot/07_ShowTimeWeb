@@ -42,6 +42,19 @@ const Navbar = () => {
     router.push("/");
   };
 
+  // const handleSearchSubmit = (event) => {
+  //   event.preventDefault();
+  //   const searchinput = event.target.elements.search.value;
+  //   router.push(`/search?=${searchinput}`);
+  // };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    const artistName = event.target.elements.search.value;
+    router.push(`/search?artist_name=${artistName}`);
+  };
+  
+
   return (
     <div>
       <header>
@@ -84,8 +97,12 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="rightNav">
-            <input type="text" name="search" id="search" />
-            <button className="btn btn-sm">Search</button>
+            <form onSubmit={handleSearchSubmit}>
+              <input type="text" name="search" id="search" />
+              <button type="submit" className="btn btn-sm">
+                Search
+              </button>
+            </form>
           </div>
         </nav>
       </header>
