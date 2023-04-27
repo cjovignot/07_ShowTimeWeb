@@ -1,5 +1,5 @@
 // src/user/user.controller.ts
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, Request } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, Request, Query } from '@nestjs/common';
 import { Request as ExpressRequest } from 'express';
 import { UserService } from './user.service';
 import { User } from './user.schema';
@@ -38,8 +38,8 @@ export class UserController {
 
   // @UseGuards(AuthGuard('jwt'))
   @Get()
-  async findAll(): Promise<User[]> {
-    return this.userService.findAll();
+  async findAll(@Query() query: any): Promise<User[]> {
+    return this.userService.findAll(query);
   }
 
   // @UseGuards(AuthGuard('jwt'))
