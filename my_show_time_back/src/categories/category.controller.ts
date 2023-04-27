@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { Category } from './category.schema';
 import { CategoryService } from './category.service';
@@ -15,8 +16,8 @@ export class CategoryController {
   constructor(private categoryService: CategoryService) {}
 
   @Get()
-  async findAll(): Promise<Category[]> {
-    return this.categoryService.findAll();
+  async findAll(@Query() query: any): Promise<Category[]> {
+    return this.categoryService.findAll(query);
   }
 
   @Get(':id')

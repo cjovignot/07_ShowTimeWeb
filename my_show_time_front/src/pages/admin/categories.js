@@ -1,6 +1,6 @@
 import Layout from '../../components/layout';
-import AdminCategories from '../../components/admin/categories';
-import Crud from '../../components/admin/crudGenres';
+import AdminCategories from '../../components/admin/categoriesComp';
+import Crud from '../../components/admin/crudGenresComp';
 import React, { useState } from 'react';
 
 export default function Page() {

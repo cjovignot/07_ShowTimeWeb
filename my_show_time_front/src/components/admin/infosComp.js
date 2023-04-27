@@ -31,7 +31,7 @@ function adminInfos() {
             .then((response) => response)
             .catch(error => console.error(error));
     }, []);
-    console.log(dataUsers);
+    // console.log(dataUsers);
 
     useEffect(() => {
         axios.get('http://localhost:3000/users/?isAdmin=true')

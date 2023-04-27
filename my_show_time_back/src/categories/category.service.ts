@@ -14,8 +14,8 @@ export class CategoryService {
     return newCategory.save();
   }
 
-  async findAll(): Promise<Category[]> {
-    return this.categoryModel.find().exec();
+  async findAll(query: any): Promise<Category[]> {
+    return this.categoryModel.find(query).exec();
   }
 
   async findById(id: string): Promise<Category> {

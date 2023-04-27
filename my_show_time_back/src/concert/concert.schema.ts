@@ -21,7 +21,7 @@ export class Concert {
   location: string;
 
   @Prop({ default: null })
-  concert_date: Date;
+  concert_date: string;
 
   @Prop({ default: null })
   price: number;
