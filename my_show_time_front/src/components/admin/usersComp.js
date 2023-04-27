@@ -47,7 +47,7 @@ function adminUsers() {
               <td key={i}>{ item.firstname }</td>
               <td key={i}>{ item.lastname }</td>
               <td key={i}>{ item.email }</td>
-              {item.isAdmin==true && <td key={i}>Admin</td>}
+              {item.isAdmin==true && <td key={i}><b>Admin</b></td>}
               {item.isAdmin==false && <td key={i}>User</td>}
               <td><button>EDIT</button></td>
               <td><button onClick={() => handleDelete(item._id)}>DELETE</button></td>

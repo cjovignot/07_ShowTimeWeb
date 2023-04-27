@@ -38,13 +38,13 @@ function concertCategory({ concert }) {
     .then((response) => response)
     .catch(error => console.error(error));
   }, [concert]);
-    console.log("place count", placeCount)
+    // console.log("place count", placeCount)
 
   const remainingPlaces = concert.place_nbr - placeCount;
 
   return (
         <tbody>
-          <td><Link href={{ pathname: "/admin/concerts", query: { id: concert._id } }}><b>{ concert.name }</b></Link></td>
+          <td><Link href={{ pathname: "/admin/concert/", query: { id: concert._id } }}><b>{ concert.name }</b></Link></td>
 
             {categoryName && categoryName.map((item, i) => {
               if (item._id === concert.category_id) {
