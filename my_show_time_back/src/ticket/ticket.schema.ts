@@ -31,6 +31,10 @@ export class Ticket {
 
   @Prop({ required: true })
   price: Number;
+
+  @Prop()
+  qrCodeDataUrl: string; 
 }
+
 
 export const TicketSchema = SchemaFactory.createForClass(Ticket);

@@ -58,7 +58,7 @@ const Navbar = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="#courses">Sign Up</a>
+              <Link href="/Signup">Sign up</Link>
             </li>
             <li>
               {user ? (
