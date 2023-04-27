@@ -27,7 +27,7 @@ function adminConcert() {
       .catch(error => console.error(error));
   }, []);
   // console.log(data);
-  // console.log(dataConcert);
+  console.log(dataConcert);
 
   return (
     <div class="admin_concert">

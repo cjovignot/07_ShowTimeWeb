@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "react-datetime/css/react-datetime.css";
 import Datetime from "react-datetime";
 import axios from 'axios';
 
@@ -9,14 +10,14 @@ function crudConcert() {
   const [category_id, setCategoryId] = useState('');
   const [location, setLocation] = useState('');
   const [concert_date, setDate] = useState('');
-  const [price, setPrice] = useState('');
+   const [price, setPrice] = useState('');
   const [place_nbr, setPlaceNbr] = useState('');
   const [concert_img, setImage] = useState('');
-  // const classes = useStyles();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log(concert_date)
       const response = await axios.post('http://localhost:3000/concerts', {
         name,
         artist_name,
@@ -79,23 +80,25 @@ function crudConcert() {
               value={location}
               onChange={(event) => setLocation(event.target.value)}></input>
 
-            <input placeholder="Concert Date"
+            {/* <input placeholder="Concert Date"
               type="text"
               id="concert_date"
               value={concert_date}
-              onChange={(event) => setDate(event.target.value)}></input>
-
-
+              onChange={(event) => setDate(event.target.value)}></input> */}
 
             <div>
               <br />
               <form fullWidth>
                 <Datetime
-                  inputProps={{ placeholder: "Concert Date & Time" }}
+                  inputProps={{
+                    placeholder: "Concert Date & Time",
+                    id: "concert_date",
+                    value:concert_date ,
+                  }}
+                  onChange={(event) => {setDate(new Date(event))}}
                 />  
               </form>
             </div>
-            
 
             <input placeholder="Ticket Price"
               type="text"

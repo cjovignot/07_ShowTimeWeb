@@ -49,7 +49,7 @@ function concertCategory({ concert }) {
           <td>{ concert.places_nbr }</td>
           <td>{ concert.concert_img }</td>
           <td><button>EDIT</button></td>
-          <td><button onClick={() => handleDelete( item._id )}>DELETE</button></td>
+          <td><button onClick={() => handleDelete( concert._id )}>DELETE</button></td>
         </tbody>
   );
 };
