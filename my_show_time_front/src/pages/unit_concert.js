@@ -6,6 +6,7 @@ import TicketBuy from "../components/BuyTicket";
 function UnitConcert() {
   const router = useRouter();
   const [concert, setConcert] = useState({});
+  const [placeCount, setPlaceCount] = useState(0);
 
   useEffect(() => {
     if (router.query.id) {
@@ -16,9 +17,28 @@ function UnitConcert() {
     }
   }, [router.query.id]);
   console.log(concert);
+
+  useEffect(() => {
+    if (concert._id) {
+      axios
+        .get("http://localhost:3000/ticket?id_concert=" + concert._id)
+        .then((response) => setPlaceCount(response.data.length))
+        .catch((error) => console.error(error));
+    }
+  }, [concert]);
+
+  const updatePlaceCount = () => {
+    axios
+      .get("http://localhost:3000/ticket?id_concert=" + concert._id)
+      .then((response) => setPlaceCount(response.data.length))
+      .catch((error) => console.error(error));
+  };
+
   if (!concert) {
     return <div>Not found</div>;
   }
+
+  const remainingPlaces = concert.place_nbr - placeCount;
 
   return (
     <div>
@@ -28,9 +48,18 @@ function UnitConcert() {
         <img src={concert.concert_img} width={250} height={200} />
         <p>Location: {concert.location}</p>
         <h3>Price: {concert.price}€</h3>
+        {remainingPlaces > 0 ? (
+          <h3>Remaining Places: {remainingPlaces}</h3>
+        ) : (
+          <h3 style={{ color: "red" }}>
+            FULL / BOOKING IS NO LONGER AVAILABLE
+          </h3>
+        )}
       </div>
 
-      <TicketBuy concert={concert} />
+      {remainingPlaces > 0 && (
+        <TicketBuy concert={concert} updatePlaceCount={updatePlaceCount} />
+      )}
     </div>
   );
 }
