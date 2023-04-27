@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
+import styles from './signup.module.css';
 
 
 
-function Signup() {
+function SignupComponent() {
 	const [firstname , setFirstname] = useState('');
 	const [lastname , setLastname] = useState('');
 	const [email , setEmail] = useState('');
@@ -35,7 +35,7 @@ function Signup() {
 	}
 	// below function will be called when user
 	// click on submit button .
-	const handleSubmit=(e)=>{
+	const handleSubmit=async (e)=>{
 	if(password!=confPassword)
 	{
 		// if 'password' and 'confirm password'
@@ -43,29 +43,56 @@ function Signup() {
 		alert("password Not Match");
 	}
 	else{
-		// display alert box with user
-		// 'name' and 'email' details .
-		alert('A form was submitted with Firstname :"' + firstname +
-		'" ,Lastname :"'+lastname +'" and Email :"' + email + '"');
+		// affichage alert box avec utilisateur
+		// 'name' and 'email' détails .
+		
+
+		// Fetch
+
+
+			e.preventDefault();
+		  
+
+
+
+			const response = await fetch("http://localhost:3000/users/signup", {
+			  method: "POST",
+			  headers: { "Content-Type": "application/json" },
+			  body: JSON.stringify({ firstname, lastname, email, password }),
+			});
+			console.log(response);
+
+
 	}
 	e.preventDefault();
 
+
 	}
 return (
-	<div className="App">
-	<header className="App-header">
-	<form onSubmit={(e) => {handleSubmit(e)}}>
+	<div className={styles.App}>
+	<header className={styles.AppHeader}>
+
+	<form className={styles.form} onSubmit={(e) => {handleSubmit(e)}}>
 	{/*when user submit the form , handleSubmit()
 		function will be called .*/}
 	<h2> Show time !! </h2>
 	<h3> Sign-up for awesome concerts </h3>
-	<img src="/gfg.png" /> {/*image in the center of the circle ?.*/}
-		<label >
+	<div className="logo">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png"
+                className="home-logo"
+                alt="logo"
+              />
+            </div>		<label >
 		First name:
 		</label><br/>
 		<input type="text" value={firstname} required onChange={(e)=> {handleChange(e)}} /><br/>
 		{ /*when user write in name input box , handleChange()
 			function will be called. */}
+			
+
+
+
 		<label >
 		Last name:
 		</label><br/>
@@ -90,7 +117,9 @@ return (
 		<input type="password" value={confPassword} required onChange={(e)=> {handleConfPasswordChange(e)}} /><br/>
 				{/* when user write in confirm password input box ,
 					handleConfPasswordChange() function will be called.*/}
-		<input className = "submitbutton" type="submit" value="Submit"/>
+		<input className = {styles.submitbutton} type="submit" value="Submit"/>
+
+		
 	
 	</form>
 	</header>
@@ -98,5 +127,5 @@ return (
 );
 }
 
-export default Signup;
+export default SignupComponent;
 
