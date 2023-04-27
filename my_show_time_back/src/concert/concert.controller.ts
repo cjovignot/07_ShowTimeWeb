@@ -16,8 +16,8 @@ export class ConcertController {
   constructor(private concertService: ConcertService) {}
 
   @Get()
-  async findAll(@Query() query: any): Promise<Concert[]> {
-    return this.concertService.findAll(query);
+  async findAll(@Query('word') word: any): Promise<Concert[]> {
+    return await this.concertService.findAll(word);
   }
 
   @Get(':id')
