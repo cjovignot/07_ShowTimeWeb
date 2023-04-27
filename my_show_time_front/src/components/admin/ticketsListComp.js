@@ -7,6 +7,17 @@ import * as dayjs from 'dayjs';
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 
+const handleDelete = async (itemId, setTicketsConcert) => {
+    try {
+      const response = await axios.delete(`http://localhost:3000/ticket/${itemId}`);
+      setTicketsConcert(prevTickets => prevTickets.filter(item => item._id !== itemId));
+      // handle success response
+    } catch (error) {
+      console.error(error);
+      // handle error response
+    }
+  };
+
 function ticketsList() {
     const router = useRouter();
     const [dataTicketsConcert, setTicketsConcert] = useState(null);
@@ -48,6 +59,7 @@ function ticketsList() {
                     <td>{ dayjs(item.date).format('ddd, D MMM, YYYY h:mm A') }</td>
                     <td>{ item.location }</td>
                     <td>{ item.price }</td>
+                    <td><button onClick={() => handleDelete(item._id, setTicketsConcert)}>DELETE</button></td>
                 </tr>
                 )})}
         </table>

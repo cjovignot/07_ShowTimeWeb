@@ -27,11 +27,7 @@ function user_ticket() {
   console.log(dataTicket);
 
   return (
-    <div class="admin_concert">
-      <Link href="/admin">
-        <button>Back</button>
-      </Link>
-
+    <div>
       <h1>MY TICKET LIST PAGE for {user ? user.firstname : "User"}</h1>
 
       {dataTicket &&
@@ -42,6 +38,8 @@ function user_ticket() {
                 value={`/unit_concert?id=${item.id_concert}`}
                 size={150}
               />
+              Concert name: {item.concertName}
+              Concert ID: {item.id_concert}
               Firstname: {item.firstname}
               Lastname: {item.lastname}
               Location: {item.location}

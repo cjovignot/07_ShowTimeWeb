@@ -74,6 +74,7 @@ function BuyTicket(props) {
       setMessage(`Congrats, you bought ${ticketCount} number of tickets!`);
       setTicketCount(0);
       setFormsData([]);
+      props.updatePlaceCount();
     } catch (error) {
       setMessage("Error submitting the form.");
       console.error(error);

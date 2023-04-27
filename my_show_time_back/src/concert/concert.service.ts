@@ -14,8 +14,16 @@ export class ConcertService {
     return newConcert.save();
   }
 
-  async findAll(query: any): Promise<Concert[]> {
-    return this.concertModel.find(query).exec();
+  async findAll(word: string): Promise<Concert[]> {
+    const searchRegex = new RegExp(word, 'i');
+
+    return await this.concertModel.find({
+      $or: [
+        { name: { $regex: searchRegex } },
+        { artist_name: { $regex: searchRegex } },
+        { location: { $regex: searchRegex } },
+      ],
+    });
   }
 
   async findById(id: string): Promise<Concert> {
