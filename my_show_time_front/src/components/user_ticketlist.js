@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import QRCode from "react-qr-code";
 
 function user_ticket() {
   const [dataTicket, setdataTicket] = useState(null);
@@ -37,6 +38,10 @@ function user_ticket() {
         dataTicket.map((item, i) => (
           <div key={i}>
             <div>
+              <QRCode
+                value={`/unit_concert?id=${item.id_concert}`}
+                size={150}
+              />
               Firstname: {item.firstname}
               Lastname: {item.lastname}
               Location: {item.location}

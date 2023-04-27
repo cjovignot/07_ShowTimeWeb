@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import * as dayjs from 'dayjs';
 import axios from 'axios';
+
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
 
 const handleDelete = async (itemId) => {
   try {
@@ -17,6 +21,7 @@ const handleDelete = async (itemId) => {
 
 function concertCategory({ concert }) {
   const [categoryName, setCategoryName] = useState(null);
+  const [placeCount, setPlaceCount] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:3000/categories')
@@ -27,9 +32,19 @@ function concertCategory({ concert }) {
 
   // console.log("NAME", categoryName);
 
+  useEffect(() => {
+    axios.get("http://localhost:3000/ticket?id_concert=" + concert._id)
+    .then(response => setPlaceCount(response.data.length))
+    .then((response) => response)
+    .catch(error => console.error(error));
+  }, [concert]);
+    console.log("place count", placeCount)
+
+  const remainingPlaces = concert.place_nbr - placeCount;
+
   return (
         <tbody>
-          <Link href={{ pathname: "/admin/concerts", query: { id: concert._id } }}><td><b>{ concert.name }</b></td></Link>
+          <td><Link href={{ pathname: "/admin/concerts", query: { id: concert._id } }}><b>{ concert.name }</b></Link></td>
 
             {categoryName && categoryName.map((item, i) => {
               if (item._id === concert.category_id) {
@@ -43,15 +58,19 @@ function concertCategory({ concert }) {
               return null;
             })}
 
-          <td>{ concert.concert_date }</td>
+          <td>{ dayjs().to(dayjs( concert.concert_date )) }</td>
+          <td>{ dayjs(concert.concert_date).format('ddd, D MMM, YYYY h:mm A') }</td>
           <td>{ concert.location }</td>
           <td>{ concert.price } €</td>
-          <td>{ concert.places_nbr }</td>
-          <td>{ concert.concert_img }</td>
+
+          <td>{remainingPlaces}</td>
+
+          <td><img src={concert.concert_img} width="100"/></td>
           <td><button>EDIT</button></td>
-          <td><button onClick={() => handleDelete( item._id )}>DELETE</button></td>
+          <td><button onClick={() => handleDelete( concert._id )}>DELETE</button></td>
         </tbody>
   );
-};
+  
+}
   
 export default concertCategory;

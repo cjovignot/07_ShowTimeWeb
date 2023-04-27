@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import SortBy from 'sort-by';
 
 import Concert from './childConcertComp';
 
@@ -19,15 +20,18 @@ const handleDelete = async (itemId) => {
 
 function adminConcert() {
   const [dataConcert, setdataConcert] = useState(null);
-
+  
   useEffect(() => {
     axios.get('http://localhost:3000/concerts')
-      .then(response => setdataConcert(response.data))
+      .then(response => {
+        const sortedData = response.data.sort((a, b) => new Date(a.concert_date) - new Date(b.concert_date));
+        setdataConcert(sortedData);
+      })
       .then((response) => response)
       .catch(error => console.error(error));
-  }, []);
-  // console.log(data);
-  // console.log(dataConcert);
+    }, []);
+
+  console.log(dataConcert);
 
   return (
     <div class="admin_concert">
@@ -36,17 +40,18 @@ function adminConcert() {
         <table>
             <thead>
               <tr>
-                <th><h3>CONCERT</h3></th>
-                <th><h3>GENRE</h3></th>
-                <th><h3>DATE</h3></th>
-                <th><h3>LOCATION</h3></th>
-                <th><h3>PRICE</h3></th>
-                <th><h3>PLACES</h3></th>
-                <th><h3>IMAGE</h3></th>
+                <td><h3>CONCERT</h3></td>
+                <td><h3>GENRE</h3></td>
+                <td><h3>REMAINING TIME</h3></td>
+                <td><h3>DATE</h3></td>
+                <td><h3>LOCATION</h3></td>
+                <td><h3>PRICE</h3></td>
+                <td><h3>PLACES</h3></td>
+                <td><h3>IMAGE</h3></td>
               </tr>
             </thead>
             {dataConcert && dataConcert.map((item, i) => (
-              <Concert concert={ item }/>
+              <Concert concert={ item } />
               ))
             }
         </table>

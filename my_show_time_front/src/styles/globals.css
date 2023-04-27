@@ -365,9 +365,25 @@ code {
 	text-align: center;
 }
 .admin_concert table {
+	text-align: center;
 	margin: 10px auto;
 	width: 80%;
 	border: 1px black solid;
+}
+.admin_concert table tbody {
+    align-items: center;
+    border: 3px white solid;
+    background-color: #9dbbbc1a;
+}
+.admin_concert tbody td, th {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	min-width: 100px;
+	max-width: 150px;
+}
+.admin_concert a {
+	text-decoration: none;
+	color: rgb(145, 90, 90);
 }
 
 
