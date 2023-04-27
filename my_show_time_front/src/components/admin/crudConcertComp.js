@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
+import Datetime from "react-datetime";
 import axios from 'axios';
-
-
 
 function crudConcert() {
 
@@ -13,6 +12,7 @@ function crudConcert() {
   const [price, setPrice] = useState('');
   const [place_nbr, setPlaceNbr] = useState('');
   const [concert_img, setImage] = useState('');
+  // const classes = useStyles();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -84,6 +84,18 @@ function crudConcert() {
               id="concert_date"
               value={concert_date}
               onChange={(event) => setDate(event.target.value)}></input>
+
+
+
+            <div>
+              <br />
+              <form fullWidth>
+                <Datetime
+                  inputProps={{ placeholder: "Concert Date & Time" }}
+                />
+              </form>
+            </div>
+            
 
             <input placeholder="Ticket Price"
               type="text"

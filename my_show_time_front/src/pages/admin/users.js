@@ -1,5 +1,5 @@
 import Layout from '../../components/layout';
-import AdminUsers from '../../components/admin/users';
+import AdminUsers from '../../components/admin/usersComp';
 
 export default function Page() {
     return (

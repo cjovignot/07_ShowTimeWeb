@@ -1,6 +1,6 @@
 import Layout from '../../components/layout';
-import AdminConcerts from '../../components/admin/concerts';
-import Crud from '../../components/admin/crudConcert';
+import AdminConcerts from '../../components/admin/concertsComp';
+import Crud from '../../components/admin/crudConcertComp';
 import React, { useState } from 'react';
 
 export default function Page() {
