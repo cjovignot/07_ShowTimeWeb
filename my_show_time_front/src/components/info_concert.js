@@ -44,11 +44,7 @@ function ConcertInfo({ concert }) {
           }
           return null;
         })}
-      {placeCount !== null && (
-        <h3>
-          Place count: {placeCount} (Remaining places: {remainingPlaces})
-        </h3>
-      )}
+      {placeCount !== null && <h3>Remaining places: {remainingPlaces}</h3>}
       <h3>Price: {concert.price}€</h3>
     </div>
   );
