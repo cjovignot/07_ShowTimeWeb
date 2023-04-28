@@ -1,6 +1,5 @@
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -76,15 +75,6 @@ code {
 	border-radius: 9px;
 }
 
-.box-main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: black;
-	max-width: 80%;
-	margin: auto;
-	height: 80%;
-}
 
 .firsthalf {
 	width: 100%;
@@ -93,27 +83,6 @@ code {
 	justify-content: center;
 }
 
-.secondhalf {
-	width: 30%;
-}
-
-.secondhalf img {
-	width: 70%;
-	border: 4px solid white;
-	border-radius: 150px;
-	display: block;
-	margin: auto;
-}
-
-.text-big {
-	font-weight: 500;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 30px;
-}
-
-.text-small {
-	font-size: 18px;
-}
 
 .btn {
 	margin-left: 20px;
@@ -129,13 +98,37 @@ code {
 	vertical-align: middle;
 }
 
-.section {
-	height: 200px;
+  
+.product-list {
 	display: flex;
-	align-items: center;
-	background-color: rgb(250, 250, 250);
-	justify-content: space-between;
+	padding: 2em;
 }
+
+.product-list .card {
+	background-color: #2196F3;
+	border-radius: 10px;
+	padding: 1em;
+	box-shadow: 0px 10px 5px #18191a;
+	text-align: center;
+	max-width: 25%;
+}
+
+.card .title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.card img {
+	max-width: 100%;
+	border-radius: 5px;
+}
+
+.card .text-list {
+	text-align: left;
+	margin-left: 2em;
+}
+
+
 
 .section-Left {
 	flex-direction: row-reverse;

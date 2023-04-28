@@ -30,10 +30,19 @@ function ConcertInfo({ concert }) {
   const remainingPlaces = concert.place_nbr - placeCount;
 
   return (
-    <div>
-      <h1>{concert.name}</h1>
-      <h2>{concert.artist_name}</h2>
+    <div class="product-list">
+      <div class="card">
+
+        <div class="title">
+          <h1>{concert.name}</h1>
+          <h2>{concert.artist_name}</h2>
+      </div>
+
+      <div class="image">
       <img src={concert.concert_img} width={250} height={200} />
+      </div>
+
+      <div class="text-list">
       <p>Location: {concert.location}</p>
       <p>{dayjs().to(dayjs(concert.concert_date))}</p>
       <p>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
@@ -46,6 +55,8 @@ function ConcertInfo({ concert }) {
         })}
       {placeCount !== null && <h3>Remaining places: {remainingPlaces}</h3>}
       <h3>Price: {concert.price}€</h3>
+      </div>
+      </div>
     </div>
   );
 }
