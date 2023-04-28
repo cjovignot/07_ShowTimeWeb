@@ -18,11 +18,15 @@ import { UserService } from './user.service';
 import { User } from './user.schema';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from '../auth/auth.service';
+import { ApiTags, ApiResponse, ApiParam, ApiQuery, ApiOperation } from '@nestjs/swagger';
+
 
 interface RequestWithUser extends ExpressRequest {
   user?: any;
 }
 
+
+@ApiTags('users')
 @Controller('users')
 export class UserController {
   constructor(
@@ -32,12 +36,16 @@ export class UserController {
 
   @UseGuards(AuthGuard('local'))
   @Post('login')
+  @ApiOperation({ summary: 'User login' })
+  @ApiResponse({ status: 200, description: 'User successfully logged in', type: User })
   async login(@Request() req) {
     console.log('Login request:', req.method, req.url, req.body);
     return this.authService.login(req.user);
   }
 
   @Post('signup')
+  @ApiOperation({ summary: 'User signup' })
+  @ApiResponse({ status: 201, description: 'User successfully created', type: User })
   async create(@Body() user: User): Promise<any> {
     try {
       const newUser = await this.userService.create(user);
@@ -64,16 +72,22 @@ export class UserController {
   }
 
   @Get()
+  @ApiQuery({ name: 'query', required: false, description: 'Search query for users' })
+  @ApiResponse({ status: 200, description: 'List of users', type: [User] })
   async findAll(@Query() query: any): Promise<User[]> {
     return this.userService.findAll(query);
   }
 
   @Get(':id')
+  @ApiParam({ name: 'id', description: 'User ID' })
+  @ApiResponse({ status: 200, description: 'User details', type: User })
   async findOne(@Param('id') id: string): Promise<User> {
     return this.userService.findOne(id);
   }
 
   @Put(':id')
+  @ApiParam({ name: 'id', description: 'User ID' })
+  @ApiResponse({ status: 200, description: 'Update a user', type: User })
   async update(@Param('id') id: string, @Body() user: User): Promise<any> {
     try {
       const updatedUser = await this.userService.update(id, user);
@@ -101,6 +115,8 @@ export class UserController {
 
   // @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
+  @ApiParam({ name: 'id', description: 'User ID' })
+  @ApiResponse({ status: 200, description: 'Delete a user', type: User })
   async delete(@Param('id') id: string): Promise<any> {
     try {
       const deletedUser = await this.userService.delete(id);
