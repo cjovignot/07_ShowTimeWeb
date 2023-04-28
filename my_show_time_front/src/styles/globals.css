@@ -2,164 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-	font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-} */
+footer {
+	background-color: #000;
+	text-align: center;
+	padding: 15px;
+	margin-top: 30px;
+}
 
-/* code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
-} */
-
+/* NAVBAR */
 .navbar {
 	display: flex;
-	background: rgb(255, 255, 255);
-	justify-content: space-between;
-	height: 100px;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    justify-content: space-between;
+    height: 100px;
+    z-index: 999;
+    top: 0;
+}
+.navbar .btn {
+	margin: 0 15px;
 }
 #logo {
 	height: 70px;
 	margin: 0 10px;
 }
-
 .navbar_left {
 	display: flex;
 }
 .navbar_left a {
 	width: 80px;
 }
-
-
-
-
-/* .navbarwankers {
+.navbar_right .form {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	z-index: 9999;
-	cursor: pointer;
-	width: 100%;
-} */
-
-/* .background {
-	background: rgb(255, 255, 255);
-	background-blend-mode: darken;
-	background-size: cover;
-} */
-
-.footerwankers {
-	background-color: #000;
+    align-items: center;
 }
-
-/* .menunavbar {
-	display: flex;
-	text-align: center;
-} */
-
-/* .rightnav {
-	width: 400px;
-	text-align: right;
-	display: flex;
-} */
-
-
-/* .nav-list2 {
-	min-width: 40px;
-	display: flex;
-	align-items: center;
-} */
-
-
-/* .nav-list li, span, button, label {
-	color: rgb(7, 8, 8);
-	padding: 20px;
-} */
-
-/* .nav-input {
-	color: #fff;
-} */
-
-
-
 #search {
 	padding: 5px;
-	font-size: 17px;
-	border: 2px solid rgb(0, 0, 0);
+	font-size: 14px;
+	border: 1.5px solid #a6adbb;
+	background-color: white;
+	color: black;
 	border-radius: 9px;
+	width: 300px;
 }
+/* END NAVBAR */
 
-
-/* .btn {
-	margin-left: 20px;
-	height: 33px;
-	width: 70px;
-	color: #fff;
-	background-color: #000;
-	cursor: pointer;
-} */
-
-/* .btn-sm {
-	padding: 6px 10px;
-	vertical-align: middle;
-} */
-
-  
+/* HOME PAGE */
+.home_content{
+	width: 90%;
+	margin: auto;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+	margin-top: 120px;
+}
 .product-list {
-	color: #182f7b;
-	display: flex;
-	padding: 2em;
-}
-
-.product-list .card {
-	background-color: #f4f4f4;
-	border-radius: 10px;
-	padding: 1em;
-	box-shadow: 0px 10px 5px #1a1818;
+	color: rgb(48, 28, 28);
 	text-align: center;
+    width: 352px;
 }
-
+.product-list .card {
+    background-color: #f4f4f4;
+    /* padding: 1em; */
+	padding: 20px;
+    margin: 15px;
+    box-shadow: 0px 10px 5px #1a1818;
+}
+.card img {
+	width: 100%;
+}
+.image {
+	height: 200px;
+	width: 100%;
+	overflow: hidden;
+}
 .card .title {
 	font-size: 20px;
 	font-weight: bold;
 }
-
-/* .card img {
-	max-width: 100%;
-	border-radius: 5px;
-} */
-
 .card .text-list {
 	margin-top: 1em;
 	text-align: left;
-	margin-left: 2em;
 	font-size: 15px;
-}
-
-.product-container {
-	margin-top: 120px;
-	display: flex;
-	flex-wrap: wrap;
-	grid-column-gap: 20px;
-	grid-row-gap: 40px
-}
-
-
-/* .section-Left {
-	flex-direction: row-reverse;
-} */
-
-/* .center {
-	text-align: center;
-} */
-
-.text-footer {
-	text-align: center;
-	padding: 10px 0;
 }
 
 
@@ -567,7 +492,7 @@
 
 
 /* SIGN UP START */
-.App {
+/* .App {
     text-align: center;
 }
 
@@ -598,9 +523,9 @@
     color: black;
 }
 
-.btn {
+.btn { */
     /* background-color: white; */
-    height: 28px;
+    /* height: 28px;
     width: 160px;
     border-radius: 5%;
     margin: 24px;
@@ -619,5 +544,5 @@ font-size: 16px ;
 color: red;
 max-width: 390px;
 margin: 24px;
-}
+} */
 /* SIGNUP END */

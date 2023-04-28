@@ -7,14 +7,6 @@ import InfoConcert from "./info_concert";
 function AllConcerts() {
   const [dataConcerts, setDataConcerts] = useState(null);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await axios.get("http://localhost:3000/concerts");
-  //     setDataConcerts(response.data);
-  //   }
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     axios.get('http://localhost:3000/concerts')
       .then(response => {
@@ -26,8 +18,7 @@ function AllConcerts() {
     }, []);
 
   return (
-    <div>
-      <h1>List of concerts :</h1>
+    <div className="home_content">
       <div className="product-container">
         {dataConcerts &&
           dataConcerts.map((item) => (
