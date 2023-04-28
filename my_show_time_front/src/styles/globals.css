@@ -314,6 +314,9 @@ code {
 
 
 /* ADMIN */
+#back_button {
+	margin: 30px auto;
+}
 /* ADMIN INDEX */
 .admin_infos {
 	display: flex;
@@ -332,16 +335,96 @@ code {
 	margin: 20px 0;
 }
 
+/* ADMIN GENRES */
+.admin_genres {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+    min-width: 800px;
+    max-width: 90%;
+}
+.admin_genres h1 {
+	margin: 30px auto;
+}
 
+/* ADMIN CONCERTS */
 .admin_concert {
-	margin: auto;
-    width: 70%;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_concert h1 {
+	margin: 20px auto;
 }
 .table :where(th, td) {
     white-space: nowrap;
     padding: 0.5rem;
     vertical-align: middle;
 }
+.admin_concert :where(td) {
+	min-width: 150px;
+}
+.admin_concert .table_line {
+	display: flex;
+	align-items: center;
+}
+.admin_concert .btn {
+	margin: 20px 5px;
+}
+
+/* CRUD CONCERT */
+.admin_crud_concert {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_crud_concert button {
+	margin: 20px auto;
+}
+.admin_crud_concert input {
+	margin: 5px auto;
+}
+.admin_crud_concert label {
+	margin: 20px auto;
+	width: 200px;
+}
+.rdtPicker {
+	display: none;
+	position: absolute;
+	min-width: 250px;
+	padding: 4px;
+	margin-top: 1px;
+	z-index: 99999 !important;
+	background: #000000d4!important;
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	border: 1px solid #f9f9f9;
+}
+.rdt input {
+	background-color: none!important;
+  }
+
+/* CRUD CATEGORIES */
+.admin_crud_category {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_crud_category label {
+	margin: 20px auto;
+	width: 200px;
+}
+
+/* ADMIN USERS */
+.admin_users {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin_users h1 {
+	margin: 20px auto;
+}
+
 /*.admin_infos a {
 	text-decoration: none;
 	color: black;

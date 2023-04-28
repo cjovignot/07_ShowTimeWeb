@@ -1,38 +1,39 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
 function crudGenre() {
+  const [name, setName] = useState('');
+  const [categories, setCategories] = useState([]);
 
-    const [name, setName] = useState('');
-  
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-      try {
-        const response = await axios.post('http://localhost:3000/categories', {
-          name,
-        });
-        console.log(response.data);
-        // handle success response
-      } catch (error) {
-        console.error(error);
-        // handle error response
-      }
-    window.location.reload(false);
-    };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3000/categories', {
+        name,
+      });
+
+      const newCategory = response.data;
+      setCategories((prevCategories) => [...prevCategories, newCategory]);
+      console.log(newCategory);
+      // handle success response
+    } catch (error) {
+      console.error(error);
+      // handle error response
+    }
+  };
 
   return (
     <div className="admin_crud">
         <form className="admin_crud" onSubmit={handleSubmit}>
-            <h1>CRUD GENRES</h1>
             <input
                 placeholder="Genre Name"
                 type="text"
                 id="name"
                 value={name}
-                onChange={(event) => setName(event.target.value)}>
+                onChange={(event) => setName(event.target.value)}
+                className="input input-bordered w-full max-w-xs">
             </input>
-            <button type="submit">Save</button>
+            <button className="btn btn-success" type="submit">Save</button>
         </form>
     </div>
   );

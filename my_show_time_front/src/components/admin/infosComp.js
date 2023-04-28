@@ -43,8 +43,8 @@ function adminInfos() {
 
     
     return (
-        <div class="admin_infos">
-            <h1 class="text-3xl font-bold">ADMINISTRATOR PANEL</h1>
+        <div className="admin_infos">
+            <h1 className="text-3xl font-bold">ADMINISTRATOR PANEL</h1>
             <table>
                 <tbody>
                     <thead>

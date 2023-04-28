@@ -9,17 +9,15 @@ function toggle(){
   setShowMe(!showMe);
 }
     return (
-      <div>
-        <div class="toggle">Create New Music Genre
-          <label class="switch">
-            <input type="checkbox"  onClick={toggle}></input>
-            <span class="slider round"></span>
-          </label>
-        </div>
+      <div className="admin_crud_category">
+
+        <label for="my-modal" className="btn btn-info" onClick={toggle}>Create a new Genre</label>
         
         <div style={{
           display: showMe?"block":"none"
         }}>
+
+
           <Crud />
         </div>
 

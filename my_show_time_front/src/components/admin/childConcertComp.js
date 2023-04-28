@@ -61,12 +61,6 @@ function concertCategory({ concert, handleDelete }) {
       <td>
         <img src={concert.concert_img} width="100" />
       </td>
-      <td>
-        <button>EDIT</button>
-      </td>
-      <td>
-        <button onClick={() => handleDelete(concert._id)}>DELETE</button>
-      </td>
     </tbody>
   );
 }

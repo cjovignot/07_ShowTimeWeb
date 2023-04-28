@@ -32,25 +32,12 @@ function CrudConcert() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(concert_date);
       const response = await axios.post("http://localhost:3000/concerts", {
-        name,
-        artist_name,
-        category_id,
-        location,
-        concert_date,
-        price,
-        place_nbr,
-        concert_img,
+        name, artist_name, category_id, location, concert_date, price, place_nbr, concert_img,
       });
-      console.log(response.data);
-
-      // handle success response
     } catch (error) {
       console.error(error);
-      // handle error response
     }
-    window.location.reload(false);
   };
 
   const handleImageUpload = async (event) => {
@@ -75,91 +62,96 @@ function CrudConcert() {
   };
 
   return (
-    <div class="admin_crud">
-      <form class="admin_crud" onSubmit={handleSubmit}>
-        <h1>CRUD CONCERT</h1>
-        <input
-          placeholder="Concert Name"
-          type="text"
-          id="name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
+    <div>
 
-        <input
-          placeholder="Artist Name"
-          type="text"
-          id="artist_name"
-          value={artist_name}
-          onChange={(event) => setArtistName(event.target.value)}
-        />
 
-        <select
-          id="category_id"
-          value={category_id}
-          onChange={(event) => setCategoryId(event.target.value)}
-        >
-          <option value="">Select Category</option>
-          {categories.map((category) => (
-            <option key={category._id} value={category._id}>
-              {category.name}
-            </option>
-          ))}
-        </select>
-        <input
-          placeholder="Location"
-          type="text"
-          id="location"
-          value={location}
-          onChange={(event) => setLocation(event.target.value)}
-        ></input>
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <form className="admin_crud_concert" onSubmit={handleSubmit}>
+          <input
+            placeholder="Concert Name"
+            type="text"
+            id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            className="input input-bordered w-full max-w-xs"
+          />
 
-        {/* <input placeholder="Concert Date"
-              type="text"
-              id="concert_date"
-              value={concert_date}
-              onChange={(event) => setDate(event.target.value)}></input> */}
+          <input
+            placeholder="Artist Name"
+            type="text"
+            id="artist_name"
+            value={artist_name}
+            onChange={(event) => setArtistName(event.target.value)}
+            className="input input-bordered w-full max-w-xs"
+          />
 
-        <div>
-          <br />
-          <form fullWidth>
-            <Datetime
-              inputProps={{
-                placeholder: "Concert Date & Time",
-                id: "concert_date",
-                value: concert_date,
-              }}
-              onChange={(event) => {
-                setDate(new Date(event));
-              }}
-            />
-          </form>
-        </div>
+          <select
+            id="category_id"
+            value={category_id}
+            onChange={(event) => setCategoryId(event.target.value)}
+            className="select select-bordered select-sm w-full max-w-xs">
+            <option value="">Select Category</option>
+            {categories.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
 
-        <input
-          placeholder="Ticket Price"
-          type="text"
-          id="price"
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-        ></input>
+          <input
+            placeholder="Location"
+            type="text"
+            id="location"
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+            className="input input-bordered w-full max-w-xs">
+          </input>
 
-        <input
-          placeholder="Places"
-          type="text"
-          id="place_nbr"
-          value={place_nbr}
-          onChange={(event) => setPlaceNbr(event.target.value)}
-        ></input>
+            <form fullWidth className="input input-bordered w-full max-w-xs">
+              <Datetime
+                inputProps={{
+                  placeholder: "Concert Date & Time",
+                  id: "concert_date",
+                  value: concert_date,
+                }}
+                onChange={(event) => {
+                  setDate(new Date(event));
+                }}
+              />
+            </form>
 
-        <input
-          type="file"
-          id="concert_img"
-          accept="image/*"
-          onChange={(event) => handleImageUpload(event)}
-        />
-        <button type="submit">Save</button>
-      </form>
+          <input
+            placeholder="Ticket Price"
+            type="text"
+            id="price"
+            value={price}
+            onChange={(event) => setPrice(event.target.value)}
+            className="input input-bordered w-full max-w-xs"
+          ></input>
+
+          <input
+            placeholder="Places"
+            type="text"
+            id="place_nbr"
+            value={place_nbr}
+            onChange={(event) => setPlaceNbr(event.target.value)}
+            className="input input-bordered w-full max-w-xs"
+          ></input>
+
+          <input
+            type="file"
+            id="concert_img"
+            accept="image/*"
+            onChange={(event) => handleImageUpload(event)}
+            className="input input-bordered w-full max-w-xs"
+          />
+          <button className="btn btn-success" type="submit">Save</button>
+        </form>
+
+      </div>
+
+
+
     </div>
   );
 }

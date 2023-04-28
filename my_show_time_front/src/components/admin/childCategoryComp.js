@@ -3,18 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import concertCategory from './childConcertComp';
 
-const handleDelete = async (itemId) => {
-  try {
-    const response = await axios.delete(`http://localhost:3000/categories/${itemId}`);
-    // console.log(response.data);
-    setItems(items.filter((item) => item._id !== itemId));
-    // handle success response
-  } catch (error) {
-    console.error(error);
-    // handle error response
-  }
-  window.location.reload(false);
-};
 
 function categoryConcerts({ category }) {
   const [categoryConcerts, setCategoryConcerts] = useState(null);
@@ -33,8 +21,6 @@ function categoryConcerts({ category }) {
     <tbody>
       <td><b>{ category.name }</b></td>
       <td>{ categoryConcerts }</td>
-      <td><button className="btn btn-outline btn-secondary">EDIT</button></td>
-      <td><button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id)}>DELETE</button></td>
     </tbody>
   );
 };
