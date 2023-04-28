@@ -14,16 +14,23 @@ export class ConcertService {
     return newConcert.save();
   }
 
-  async findAll(word: string): Promise<Concert[]> {
+  async findAll(word: string, categoryId: string): Promise<Concert[]> {
     const searchRegex = new RegExp(word, 'i');
-
-    return await this.concertModel.find({
+  
+    let query: any = {
       $or: [
         { name: { $regex: searchRegex } },
         { artist_name: { $regex: searchRegex } },
         { location: { $regex: searchRegex } },
       ],
-    });
+    };
+  
+    // If category_id is provided, add it to the query object
+    if (categoryId) {
+      query['category_id'] = categoryId;
+    }
+  
+    return await this.concertModel.find(query);
   }
 
   async findById(id: string): Promise<Concert> {

@@ -10,7 +10,6 @@ import { join } from 'path/posix';
 
 import { ConcertModule } from './concert/concert.module';
 import { CategoryModule } from './categories/category.module';
-import { ItemModule } from './item/item.module';
 import { UserModule } from './user/user.module';
 import { TicketModule } from './ticket/ticket.module';
 
@@ -21,7 +20,8 @@ import { TicketModule } from './ticket/ticket.module';
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ConcertModule,
     CategoryModule,
-    ItemModule,UserModule,TicketModule,
+    UserModule,
+    TicketModule,
 
     JwtModule.register({
       signOptions: { expiresIn: '2h' },

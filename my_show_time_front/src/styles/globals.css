@@ -230,92 +230,94 @@ code {
 	margin-bottom: 1rem;
 }
 
-.button-group {
+/* .button-group {
 	display: flex;
 	justify-content: space-between;
-}
+} */
 
-.button-group button {
+/* .button-group button {
 	padding: 0.5rem;
 	border-radius: 0.25rem;
 	border: none;
 	background-color: #0070f3;
 	color: white;
 	cursor: pointer;
-}
+} */
 
-.button-group button:hover {
+/* .button-group button:hover {
 	background-color: #0055b8;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn {
+	width: 100px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ADMIN
 /* ADMIN INDEX */
-.admin_infos {
+/* .admin_infos {
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,6 +329,7 @@ code {
 .admin_infos a {
 	text-decoration: none;
 	color: black;
+	margin: 5px;
 }
 .admin_infos table {
 	margin: 10px auto;
@@ -341,12 +344,10 @@ code {
 	border-radius: 30px;
 	width: 300px;
 	height: 40px;
-	border: 1px black solid;
 	vertical-align: middle;
 	transition: 0.2s;
 }
 .admin_infos th:hover {
-	border: 1px black solid;
 	color: white;
 	background-color: black;
 	transition: 0.2s;
@@ -354,10 +355,10 @@ code {
 .admin_infos tr {
 	display: flex;
     flex-direction: column;
-}
+} */
 
 /* ADMIN CONCERTS */
-.admin_concert {
+/* .admin_concert {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -383,11 +384,11 @@ code {
 	overflow: hidden;
 	min-width: 100px;
 	max-width: 150px;
-}
-.admin_concert a {
+} */
+/* .admin_concert a {
 	text-decoration: none;
 	color: rgb(145, 90, 90);
-}
+} */
 
 
 /* ADMIN CRUD */
@@ -405,11 +406,11 @@ code {
 	margin: 5px 30px;
 	height: 30px;
 }
-.admin_crud button {
+/* .admin_crud button {
 	width: 100px;
 	height: 40px;
 	border-radius: 10px;
-}
+} */
 
 /* The switch - the box around the slider */
 .switch {
