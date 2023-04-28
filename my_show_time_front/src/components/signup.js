@@ -74,7 +74,7 @@ function SignupComponent() {
         >
           {/*when user submit the form , handleSubmit()
 		function will be called .*/}
-          <h2> Show time !! </h2>
+          <h2 className="showtime"> Show time !! </h2>
           <h3> Sign-up for awesome concerts </h3>
           <div className="logo">
             <img
@@ -82,7 +82,6 @@ function SignupComponent() {
               className="home-logo"
               alt="logo"
             />
-            <p className="errormessage">{errorMessage}</p>
           </div>
           <label>First name:</label>
           <br />
@@ -149,7 +148,8 @@ function SignupComponent() {
           <br />
           {/* when user write in confirm password input box ,
 					handleConfPasswordChange() function will be called.*/}
-          <input class="btn btn-primary" type="submit" value="Submit" />
+          <p className="errormessage">{errorMessage}</p>
+          <input className="btn btn-active" type="submit" value="Sign-up" />
 		  
         </form>
       </header>

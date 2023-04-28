@@ -484,41 +484,11 @@ code {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* SIGN UP START */
 .App {
     text-align: center;
 }
+
 
 .form {
     border: 4px solid black;
@@ -546,8 +516,8 @@ code {
     color: black;
 }
 
-.submitbutton {
-    background-color: white;
+.btn {
+    /* background-color: white; */
     height: 28px;
     width: 160px;
     border-radius: 5%;
@@ -557,11 +527,15 @@ code {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 	sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
 
-.errormessage{ 
-	text-align: center;
 }
+.errormessage {
+font-size: 16px ;
+color: red;
+max-width: 390px;
+margin: 24px;
 }
 /* SIGNUP END */
