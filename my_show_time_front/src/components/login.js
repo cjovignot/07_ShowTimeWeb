@@ -71,8 +71,8 @@ const Login = ({ onClose }) => {
             />
           </label>
           <div className="button-group">
-            <button type="submit">Log In</button>
-            <button type="button" onClick={onClose}>
+            <button className="btn btn-success" type="submit">Log In</button>
+            <button class="btn btn-error" type="button" onClick={onClose}>
               Cancel
             </button>
           </div>

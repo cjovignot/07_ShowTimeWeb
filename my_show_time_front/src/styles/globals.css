@@ -34,7 +34,7 @@ footer {
 }
 
 .navbar_left a {
-	width: 80px;
+	width: 90px;
 }
 
 .navbar_right .form {
@@ -244,6 +244,9 @@ footer {
 	margin: 30px auto;
 }
 
+.admin_index {
+	margin-top: 130px;
+}
 /* ADMIN INDEX */
 .admin_infos {
 	display: flex;
@@ -279,6 +282,9 @@ footer {
 }
 
 /* ADMIN CONCERTS */
+.admin_concertUnit {
+	margin-top: 130px;
+}
 .admin_concert {
 	display: flex;
 	flex-direction: column;
@@ -313,6 +319,9 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 130px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .admin_crud_concert button {
@@ -349,6 +358,9 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 130px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .admin_crud_category label {
@@ -357,6 +369,9 @@ footer {
 }
 
 /* ADMIN USERS */
+.admin_page {
+	margin-top: 120px;
+}
 .admin_users {
 	display: flex;
 	flex-direction: column;
@@ -1038,19 +1053,21 @@ input:checked+.slider:before {
 
 
 
-
+.badge {
+	margin: 0 10px;
+}
 
 
 .profile_user {
-
-	display: flex;
-
+    display: flex;
+    margin-top: 130px;
+    margin: auto;
+    justify-content: center;
+    margin-top: 130px;
 }
 
 .profile_user_comp {
-
 	margin-right: 10px;
-
 }
 
 .ticketuser {
@@ -1059,13 +1076,14 @@ input:checked+.slider:before {
 }
 
 .ticketuser .card {
-	flex-direction: row;
-	width: 100%;
-
+    flex-direction: row;
+	color: black;
+    background-color: aliceblue;
+    width: 100%;
 }
 
 .Ticketlistuser {
-	width: 80%;
+	width: 60%;
 	text-align: center;
 }
 
@@ -1095,8 +1113,6 @@ input:checked+.slider:before {
 }
 
 .profileside {
-	width: 20%;
-	text-align: center;
 	margin-left: 10px;
 }
 

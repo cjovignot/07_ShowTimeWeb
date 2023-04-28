@@ -3,7 +3,7 @@ import AdminUsers from '../../components/admin/usersComp';
 
 export default function Page() {
     return (
-        <div>
+        <div className="admin_page">
             <AdminUsers />
         </div>
     )

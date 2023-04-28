@@ -5,7 +5,7 @@ import TicketsList from '../../components/admin/ticketsListComp';
 
 export default function Page() {
   return (
-    <div>
+    <div className="admin_concertUnit">
         <Concert />
         
         <TicketsList />

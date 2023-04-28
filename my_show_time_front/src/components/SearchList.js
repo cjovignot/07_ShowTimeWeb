@@ -36,7 +36,7 @@ const SearchResults = () => {
       {searchResults.length > 0 ? (
         <div className="product-container">
           {searchResults.map((result) => (
-            <li key={result._id}>
+            <div key={result._id}>
               <Link
               href={{ pathname: "/unit_concert", query: { id: result._id } }}>
                 
@@ -60,7 +60,7 @@ const SearchResults = () => {
                 </div>
                 
               </Link>
-            </li>
+            </div>
           ))}
         </div >
        
