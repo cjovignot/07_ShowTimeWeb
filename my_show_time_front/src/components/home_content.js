@@ -7,13 +7,23 @@ import InfoConcert from "./info_concert";
 function AllConcerts() {
   const [dataConcerts, setDataConcerts] = useState(null);
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await axios.get("http://localhost:3000/concerts");
+  //     setDataConcerts(response.data);
+  //   }
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get("http://localhost:3000/concerts");
-      setDataConcerts(response.data);
-    }
-    fetchData();
-  }, []);
+    axios.get('http://localhost:3000/concerts')
+      .then(response => {
+        const sortedData = response.data.sort((a, b) => new Date(b.concert_date) - new Date(a.concert_date));
+        setDataConcerts(sortedData);
+      })
+      .then((response) => response)
+      .catch(error => console.error(error));
+    }, []);
 
   return (
     <div>

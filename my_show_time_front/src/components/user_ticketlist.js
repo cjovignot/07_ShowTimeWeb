@@ -22,7 +22,11 @@ function user_ticket() {
     if (user) {
       axios
         .get("http://localhost:3000/ticket?id_user=" + user._id)
-        .then((response) => setdataTicket(response.data))
+        .then(response => {
+          const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+          setdataTicket(sortedData);
+        })
+        // .then((response) => setdataTicket(response.data))
         .then((response) => response)
         .catch((error) => console.error(error));
     }

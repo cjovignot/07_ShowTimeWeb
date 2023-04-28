@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -358,7 +362,7 @@ code {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* min-height: 70.2vh; */
+	min-height: 70.2vh;
 }
 .admin_concert h1 {
 	margin-bottom: 30px;

@@ -24,7 +24,7 @@ function adminConcert() {
   useEffect(() => {
     axios.get('http://localhost:3000/concerts')
       .then(response => {
-        const sortedData = response.data.sort((a, b) => new Date(a.concert_date) - new Date(b.concert_date));
+        const sortedData = response.data.sort((a, b) => new Date(b.concert_date) - new Date(a.concert_date));
         setdataConcert(sortedData);
       })
       .then((response) => response)

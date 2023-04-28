@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 export default function Page() {
   return (
     <div>
+      <link href="/dist/output.css" rel="stylesheet"/>
       <Home_content />
     </div>
   );
