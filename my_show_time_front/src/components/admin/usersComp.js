@@ -64,7 +64,7 @@ function adminUsers() {
   return (
     <div class="admin_concert">
       <Link href="/admin">
-        <button>Back</button>
+        <button class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Back</button>
       </Link>
       <h1>USERS MANAGER PAGE</h1>
 
