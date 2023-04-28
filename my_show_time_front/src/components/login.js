@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Cookie from "js-cookie";
+
 const Login = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +20,10 @@ const Login = ({ onClose }) => {
       const {
         token,
         user: { _doc: user },
-      } = await response.json(); // Extract the correct user object
+      } = await response.json();
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-
+      console.log(user);
       Cookie.set(
         "userInfo",
         JSON.stringify({
@@ -32,6 +33,15 @@ const Login = ({ onClose }) => {
           email: user.email,
         })
       );
+
+      if (user.isAdmin) {
+        Cookie.set("isAdmin", "true");
+      }
+
+      // Dispatch an event to notify Navbar of login success
+      const loginSuccessEvent = new Event("loginSuccess");
+      window.dispatchEvent(loginSuccessEvent);
+
       onClose();
     } else {
       setErrorMessage("Wrong email or password.");

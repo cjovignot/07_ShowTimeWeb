@@ -14,12 +14,23 @@ const Navbar = () => {
   };
 
   const [user, setUser] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const updateIsAdmin = () => {
+    const storedIsAdmin = Cookie.get("isAdmin");
+    if (storedIsAdmin) {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  };
 
   useEffect(() => {
     const storedUser = Cookie.get("userInfo");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+
+    updateIsAdmin();
   }, []);
 
   useEffect(() => {
@@ -28,16 +39,23 @@ const Navbar = () => {
       if (storedUser) {
         setUser(JSON.parse(storedUser));
       }
+      updateIsAdmin();
     };
 
     const cookieChangeListener = () => {
       updateUserFromCookie();
     };
 
+    const loginSuccessListener = () => {
+      updateUserFromCookie();
+    };
+
     window.addEventListener("updateUserFromCookie", cookieChangeListener);
+    window.addEventListener("loginSuccess", loginSuccessListener);
 
     return () => {
       window.removeEventListener("updateUserFromCookie", cookieChangeListener);
+      window.removeEventListener("loginSuccess", loginSuccessListener);
     };
   }, []);
 
@@ -57,22 +75,17 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     Cookie.remove("userInfo");
+    Cookie.remove("isAdmin");
     setUser(null);
+    updateIsAdmin();
     router.push("/");
   };
-
-  // const handleSearchSubmit = (event) => {
-  //   event.preventDefault();
-  //   const searchinput = event.target.elements.search.value;
-  //   router.push(`/search?=${searchinput}`);
-  // };
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const artistName = event.target.elements.search.value;
     router.push(`/search?artist_name=${artistName}`);
   };
-
   return (
     <div>
       <header>
@@ -112,9 +125,11 @@ const Navbar = () => {
             <li>
               <Link href="/about">About Us</Link>
             </li>
-            <li>
-              <Link href="/admin">Admin</Link>
-            </li>
+            {isAdmin && ( // Add this condition
+              <li>
+                <Link href="/admin">Admin</Link>
+              </li>
+            )}
           </ul>
           <div className="rightNav">
             <form onSubmit={handleSearchSubmit}>
