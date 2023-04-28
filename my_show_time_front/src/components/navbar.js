@@ -16,14 +16,33 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = Cookie.get("userInfo");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
+  useEffect(() => {
+    const updateUserFromCookie = () => {
+      const storedUser = Cookie.get("userInfo");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    };
+
+    const cookieChangeListener = () => {
+      updateUserFromCookie();
+    };
+
+    window.addEventListener("updateUserFromCookie", cookieChangeListener);
+
+    return () => {
+      window.removeEventListener("updateUserFromCookie", cookieChangeListener);
+    };
+  }, []);
+
   const handleLoginClose = () => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = Cookie.get("userInfo");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -53,7 +72,6 @@ const Navbar = () => {
     const artistName = event.target.elements.search.value;
     router.push(`/search?artist_name=${artistName}`);
   };
-  
 
   return (
     <div>
@@ -70,9 +88,11 @@ const Navbar = () => {
             <li>
               <Link href="/">Home</Link>
             </li>
-            <li>
-              <Link href="/Signup">Sign up</Link>
-            </li>
+            {!user && (
+              <li>
+                <Link href="/Signup">Sign up</Link>
+              </li>
+            )}
             <li>
               {user ? (
                 <>

@@ -7,6 +7,7 @@ function UnitConcert() {
   const router = useRouter();
   const [concert, setConcert] = useState({});
   const [placeCount, setPlaceCount] = useState(0);
+  const [categories, setCategories] = useState(null);
 
   useEffect(() => {
     if (router.query.id) {
@@ -17,6 +18,13 @@ function UnitConcert() {
     }
   }, [router.query.id]);
   console.log(concert);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/categories")
+      .then((response) => setCategories(response.data))
+      .catch((error) => console.error(error));
+  }, []);
 
   useEffect(() => {
     if (concert._id) {
@@ -46,6 +54,13 @@ function UnitConcert() {
         <h1>{concert.name}</h1>
         <h3>{concert.artist_name}</h3>
         <img src={concert.concert_img} width={250} height={200} />
+        {categories &&
+          categories.map((item) => {
+            if (item._id === concert.category_id) {
+              return <p key={item._id}>Genre: {item.name}</p>;
+            }
+            return null;
+          })}
         <p>Location: {concert.location}</p>
         <h3>Price: {concert.price}€</h3>
         {remainingPlaces > 0 ? (

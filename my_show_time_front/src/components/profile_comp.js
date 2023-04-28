@@ -10,6 +10,7 @@ const ProfileComp = () => {
     lastname: "",
     email: "",
   });
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const storedUser = Cookies.get("userInfo");
@@ -38,10 +39,23 @@ const ProfileComp = () => {
         `http://localhost:3000/users/${user._id}`,
         formData
       );
-      setUser(response.data);
+      const updatedUser = response.data.data;
+      setUser(updatedUser);
+      setFormData({
+        firstname: updatedUser.firstname,
+        lastname: updatedUser.lastname,
+        email: updatedUser.email,
+      });
       setEditing(false);
+      setMessage("Profile updated successfully!");
+
+      // update user cookie with the updated user object
+      Cookies.set("userInfo", JSON.stringify(updatedUser));
+      const updateUserEvent = new CustomEvent("updateUserFromCookie");
+      window.dispatchEvent(updateUserEvent);
     } catch (error) {
       console.error("Error updating user:", error);
+      setMessage("There was an error updating your profile.");
     }
   };
 
@@ -86,6 +100,7 @@ const ProfileComp = () => {
             </form>
           ) : (
             <>
+              {message && <p>{message}</p>}
               <p>
                 Name: {user.firstname} {user.lastname}
               </p>
