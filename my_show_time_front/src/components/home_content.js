@@ -28,7 +28,7 @@ function AllConcerts() {
   return (
     <div>
       <h1>List of concerts :</h1>
-      <div>
+      <div className="product-container">
         {dataConcerts &&
           dataConcerts.map((item) => (
             <a key={item._id}>

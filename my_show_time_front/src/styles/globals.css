@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -16,13 +15,14 @@ code {
 		monospace;
 }
 
-.navbar {
+.navbarwankers {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: sticky;
-	top: 0;
+	position: fixed;
+	z-index: 9999;
 	cursor: pointer;
+	width: 100%;
 }
 
 .background {
@@ -31,21 +31,41 @@ code {
 	background-size: cover;
 }
 
-.footer {
+.footerwankers {
 	background-color: #000;
 }
 
+.menunavbar {
+	display: flex;
+	text-align: center;
+}
+
+.rightnav {
+	width: 400px;
+	text-align: right;
+	display: flex;
+}
+
 .nav-list {
-	width: 70%;
+	min-width: 40px;
 	display: flex;
 	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.nav-list2 {
+	min-width: 40px;
+	display: flex;
+	align-items: center;
+	
 }
 
 .logo {
+	min-width: 40px;
 	display: flex;
 	padding: 1%;
-	justify-content: center;
-	align-items: center;
+	justify-content: right;
 }
 
 .logo img {
@@ -54,24 +74,19 @@ code {
 	border-radius: 50px;
 }
 
-.nav-list li {
-	list-style: none;
-	padding: 26px 30px;
+.nav-list li, span, button, label {
+	color: rgb(7, 8, 8);
+	padding: 20px;
 }
 
-.nav-list li a {
-	text-decoration: none;
-	color: #000;
+.nav-input {
+	color: #fff;
 }
 
-.nav-list li a:hover {
-	color: grey;
+.item-nav :hover {
+	color: rgb(217, 34, 34);
 }
 
-.rightnav {
-	width: 30%;
-	text-align: right;
-}
 
 #search {
 	padding: 5px;
@@ -80,44 +95,6 @@ code {
 	border-radius: 9px;
 }
 
-.box-main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: black;
-	max-width: 80%;
-	margin: auto;
-	height: 80%;
-}
-
-.firsthalf {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.secondhalf {
-	width: 30%;
-}
-
-.secondhalf img {
-	width: 70%;
-	border: 4px solid white;
-	border-radius: 150px;
-	display: block;
-	margin: auto;
-}
-
-.text-big {
-	font-weight: 500;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 30px;
-}
-
-.text-small {
-	font-size: 18px;
-}
 
 .btn {
 	margin-left: 20px;
@@ -133,13 +110,46 @@ code {
 	vertical-align: middle;
 }
 
-.section {
-	height: 200px;
+  
+.product-list {
+	color: #182f7b;
 	display: flex;
-	align-items: center;
-	background-color: rgb(250, 250, 250);
-	justify-content: space-between;
+	padding: 2em;
 }
+
+.product-list .card {
+	background-color: #f4f4f4;
+	border-radius: 10px;
+	padding: 1em;
+	box-shadow: 0px 10px 5px #1a1818;
+	text-align: center;
+}
+
+.card .title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.card img {
+	max-width: 100%;
+	border-radius: 5px;
+}
+
+.card .text-list {
+	margin-top: 1em;
+	text-align: left;
+	margin-left: 2em;
+	font-size: 15px;
+}
+
+.product-container {
+	margin-top: 120px;
+	display: flex;
+	flex-wrap: wrap;
+	grid-column-gap: 20px;
+	grid-row-gap: 40px
+}
+
 
 .section-Left {
 	flex-direction: row-reverse;
@@ -167,21 +177,6 @@ code {
 	.home-logo {
 		animation: home-logo-spin infinite 1.5s linear;
 	}
-}
-
-.home-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.home-link {
-	color: #61dafb;
 }
 
 @keyframes home-logo-spin {
@@ -215,6 +210,7 @@ code {
 	border-radius: 0.5rem;
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 	z-index: 100;
+	text-align: center;
 }
 
 .login label {
@@ -573,3 +569,67 @@ code {
   .slider.round:before {
 	border-radius: 50%;
   }
+
+
+
+
+
+
+
+
+
+/* SIGN UP START */
+.App {
+    text-align: center;
+}
+
+
+.form {
+    border: 4px solid black;
+    border-radius: 5% 10px;
+    padding: 30px;
+}
+
+.img {
+    height: 90px;
+    margin-left: 90px;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.AppHeader {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+}
+
+.btn {
+    /* background-color: white; */
+    height: 28px;
+    width: 160px;
+    border-radius: 5%;
+    margin: 24px;
+    text-align: center;
+	
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+
+}
+.errormessage {
+font-size: 16px ;
+color: red;
+max-width: 390px;
+margin: 24px;
+}
+/* SIGNUP END */

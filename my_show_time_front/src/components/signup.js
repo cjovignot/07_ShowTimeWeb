@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
-import styles from "./signup.module.css";
+import { useRouter } from "next/router";  
+// import styles from "../styles/globals.css";
 
 function SignupComponent() {
   const [firstname, setFirstname] = useState("");
@@ -64,17 +64,17 @@ function SignupComponent() {
   };
 
   return (
-    <div className={styles.App}>
-      <header className={styles.AppHeader}>
+    <div className="App">
+      <header className="AppHeader">
         <form
-          className={styles.form}
+          className="form"
           onSubmit={(e) => {
             handleSubmit(e);
           }}
         >
           {/*when user submit the form , handleSubmit()
 		function will be called .*/}
-          <h2> Show time !! </h2>
+          <h2 className="showtime"> Show time !! </h2>
           <h3> Sign-up for awesome concerts </h3>
           <div className="logo">
             <img
@@ -82,7 +82,6 @@ function SignupComponent() {
               className="home-logo"
               alt="logo"
             />
-            <p className={errorMessage ? styles.error : ""}>{errorMessage}</p>
           </div>
           <label>First name:</label>
           <br />
@@ -149,7 +148,9 @@ function SignupComponent() {
           <br />
           {/* when user write in confirm password input box ,
 					handleConfPasswordChange() function will be called.*/}
-          <input className={styles.submitbutton} type="submit" value="Submit" />
+          <p className="errormessage">{errorMessage}</p>
+          <input className="btn btn-active" type="submit" value="Sign-up" />
+		  
         </form>
       </header>
     </div>
