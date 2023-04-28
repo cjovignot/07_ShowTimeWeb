@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "./signup.module.css";
 
 function SignupComponent() {
   const [firstname, setFirstname] = useState("");
@@ -64,10 +63,10 @@ function SignupComponent() {
   };
 
   return (
-    <div className={styles.App}>
-      <header className={styles.AppHeader}>
+    <div className="App">
+      <header className="AppHeader">
         <form
-          className={styles.form}
+          className="form"
           onSubmit={(e) => {
             handleSubmit(e);
           }}
@@ -149,7 +148,8 @@ function SignupComponent() {
           <br />
           {/* when user write in confirm password input box ,
 					handleConfPasswordChange() function will be called.*/}
-          <input className={styles.submitbutton} type="submit" value="Submit" />
+          <input className="submitbutton" type="submit" value="Submit" />
+		  
         </form>
       </header>
     </div>
