@@ -91,41 +91,36 @@ const Navbar = () => {
 
     <div>
       <header>
-        <nav className="navbarwankers background">
-          <div className="nav-list">
-          
-            <div className="menunavbar">
-            <div className="logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" 
-              className="home-logo" alt="logo"/>
-            </div>
-            <div><Link href="/" className="item-nav">Home</Link></div>
-              {!user && (
-                <div><Link href="/Signup" className="item-nav">Sign up</Link></div>
-              )}
-            <div className="nav-list2">
-              {user ? (
-                <>
-                  <div className="w-24 rounded-xl"  > 
-                    {user.firstname[0]}
-                    {user.lastname[0]}
-                  </div>
-                  <div>
-                  <Link href="/user_profile">
-                    <button className="item-nav">Profile</button>
-                  </Link>
-                  <button onClick={handleLogout} className="item-nav">Logout</button>
-                  </div>
-                  {isAdmin && ( // Add this condition
-              <div><Link href="/admin" className="item-nav">Admin</Link></div>
+        <nav className="navbar">
+          <div className="navbar_left">
+            <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo" alt="logo"/>
+
+            <Link href="/" className="btn btn-outline">Home</Link>
+
+            {!user && (
+              <Link href="/Signup" className="btn btn-outline">Sign up</Link>
             )}
-                </>
-              ) : (
-                <button onClick={handleLoginToggle} className="item-nav">Login</button>
-              )}
-            </div></div>
-           
+            {user ? (
+              <>
+                <div> 
+                  {user.firstname[0]}
+                  {user.lastname[0]}
+                </div>
+
+                {/* <div className="profile_buttons"> */}
+                  <Link href="/user_profile" className="btn btn-outline">Profile</Link>
+                  <Link href="" onClick={handleLogout} className="btn btn-outline">Logout</Link>
+                {/* </div> */}
+                {isAdmin && ( // Add this condition
+                  <Link href="/admin" className="btn btn-outline">Admin</Link>
+                )}
+              </>
+            ) : (
+              <Link href="" onClick={handleLoginToggle} className="btn btn-outline"><div >Login</div></Link>
+            )}
+          </div>
           
+        
           <div className="rightNav">
             <form onSubmit={handleSearchSubmit}>
               <input type="text" name="search" id="search" />
@@ -133,7 +128,6 @@ const Navbar = () => {
                 Search
               </button>
             </form>
-          </div>
           </div>
         </nav>
       </header>
