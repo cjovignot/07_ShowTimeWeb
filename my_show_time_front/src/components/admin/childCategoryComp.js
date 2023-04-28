@@ -21,12 +21,13 @@ function categoryConcerts({ category }) {
 
   useEffect(() => {
     axios.get('http://localhost:3000/concerts?category_id=' + category._id)
-      .then(response => setCategoryConcerts(response.data.length))
-      .then((response) => response)
-      .catch(error => console.error(error));
-    }, [category._id]);
-
-  console.log("NAME", categoryConcerts);
+    .then(response => setCategoryConcerts(response.data.length))
+    .then((response) => response)
+    .catch(error => console.error(error));
+  }, [category._id]);
+  
+  console.log("catID", category._id)
+  console.log("length", categoryConcerts);
 
   return (
     <tbody>
@@ -37,5 +38,5 @@ function categoryConcerts({ category }) {
     </tbody>
   );
 };
-  
+    
 export default categoryConcerts;
