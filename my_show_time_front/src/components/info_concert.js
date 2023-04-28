@@ -34,8 +34,8 @@ function ConcertInfo({ concert }) {
         <div class="card">
 
           <div className="title">
-            <h1>Band: {concert.name}</h1>
-            <h2>Artist: {concert.artist_name}</h2>
+            <h1 className="text-3xl font-bold">{concert.name}</h1>
+            <h2 className="text-xl font-bold">{concert.artist_name}</h2>
           </div>
 
           <div className="image">
@@ -43,9 +43,9 @@ function ConcertInfo({ concert }) {
           </div>
 
           <div className="text-list">
-            <p>Location: {concert.location}</p>
+            <p className="text-l font-bold">Location: {concert.location}</p>
             <p>{dayjs().to(dayjs(concert.concert_date))}</p>
-            <p>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
+            <p className="text-l font-bold">{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
             {categories &&
             categories.map((item) => {
             if (item._id === concert.category_id) {
@@ -54,7 +54,7 @@ function ConcertInfo({ concert }) {
             return null;
             })}
             {placeCount !== null && <h3>Remaining places: {remainingPlaces}</h3>}
-            <h3>Price: {concert.price}€</h3>
+            <h3 className="text-2xl font-bold">{concert.price}€</h3>
           </div>
 
         </div>

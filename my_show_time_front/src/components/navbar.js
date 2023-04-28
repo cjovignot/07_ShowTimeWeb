@@ -102,9 +102,9 @@ const Navbar = () => {
             )}
             {user ? (
               <>
-                <div> 
-                  {user.firstname[0]}
-                  {user.lastname[0]}
+                <div className="btn btn-circle"> 
+                  <b>{user.firstname[0]}</b>
+                  <b>{user.lastname[0]}</b>
                 </div>
 
                 {/* <div className="profile_buttons"> */}
@@ -121,10 +121,10 @@ const Navbar = () => {
           </div>
           
         
-          <div className="rightNav">
+          <div className="navbar_right">
             <form onSubmit={handleSearchSubmit}>
               <input type="text" name="search" id="search" />
-              <button type="submit" className="btn">
+              <button type="submit" className="btn btn-outline">
                 Search
               </button>
             </form>
