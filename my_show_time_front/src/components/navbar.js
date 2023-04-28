@@ -91,43 +91,49 @@ const Navbar = () => {
 
     <div>
       <header>
-        <nav className="navbar background">
-          <ul className="nav-list">
+        <nav className="navbarwankers background">
+          <div className="nav-list">
+          
+            <div className="menunavbar">
             <div className="logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo" alt="logo"/>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" 
+              className="home-logo" alt="logo"/>
             </div>
-            <li><Link href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</Link></li>
+            <div><Link href="/" className="item-nav">Home</Link></div>
               {!user && (
-                <li><Link href="/Signup" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Sign up</Link></li>
+                <div><Link href="/Signup" className="item-nav">Sign up</Link></div>
               )}
-            <li>
+            <div className="nav-list2">
               {user ? (
                 <>
-                  <span>
+                  <div className="w-24 rounded-xl"  > 
                     {user.firstname[0]}
                     {user.lastname[0]}
-                  </span>
+                  </div>
+                  <div>
                   <Link href="/user_profile">
-                    <button class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile</button>
+                    <button className="item-nav">Profile</button>
                   </Link>
-                  <button onClick={handleLogout} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</button>
+                  <button onClick={handleLogout} className="item-nav">Logout</button>
+                  </div>
+                  {isAdmin && ( // Add this condition
+              <div><Link href="/admin" className="item-nav">Admin</Link></div>
+            )}
                 </>
               ) : (
-                <button onClick={handleLoginToggle} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</button>
+                <button onClick={handleLoginToggle} className="item-nav">Login</button>
               )}
-            </li>
-            <li><Link href="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</Link></li>
-            {isAdmin && ( // Add this condition
-              <li><Link href="/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Admin</Link></li>
-            )}
-          </ul>
+            </div></div>
+           
+          
           <div className="rightNav">
             <form onSubmit={handleSearchSubmit}>
               <input type="text" name="search" id="search" />
-              <button type="submit" className="btn btn-sm">
+              <button type="submit" className="btn">
                 Search
               </button>
             </form>
+          </div>
           </div>
         </nav>
       </header>
