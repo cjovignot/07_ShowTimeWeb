@@ -60,52 +60,90 @@ const ProfileComp = () => {
   };
 
   return (
-    <div>
+    <div className="profileside">
+      <div className="profiltitle">
+        <h1 className="text-3xl font-bold">My profile</h1>
+      </div>
       {user && (
-        <div>
-          <h2>User Info:</h2>
+        <div className="contentprofil">
           {editing ? (
             <form onSubmit={handleSubmit}>
-              <label>
-                First Name:
-                <input
-                  type="text"
-                  name="firstname"
-                  value={formData.firstname}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Last Name:
-                <input
-                  type="text"
-                  name="lastname"
-                  value={formData.lastname}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </label>
-              <button type="submit">Save</button>
-              <button type="button" onClick={() => setEditing(false)}>
-                Cancel
-              </button>
+              <table>
+                <tr>
+                  <td>
+                    <b>First Name:</b>
+                  </td>
+                  <td>
+                    <input
+                      className="input input-bordered w-full max-w-xs"
+                      type="text"
+                      name="firstname"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Last Name:</b>
+                  </td>
+                  <td>
+                    <input
+                      className="input input-bordered w-full max-w-xs"
+                      type="text"
+                      name="lastname"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Email:</b>
+                  </td>
+                  <td>
+                    <input
+                      className="input input-bordered w-full max-w-xs"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button className="btn" type="submit">
+                      Save
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => setEditing(false)}
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+              </table>
             </form>
           ) : (
             <>
               {message && <p>{message}</p>}
-              <p>
-                Name: {user.firstname} {user.lastname}
-              </p>
-              <p>Email: {user.email}</p>
-              <button onClick={() => setEditing(true)}>Edit</button>
+              <div className="userprofileinfo">
+                <p>
+                  <b> Name: </b>
+                  {user.firstname} {user.lastname}
+                </p>
+                <p>
+                  <b>Email:</b> {user.email}
+                </p>
+              </div>
+              <button className="btn" onClick={() => setEditing(true)}>
+                Edit
+              </button>
             </>
           )}
         </div>

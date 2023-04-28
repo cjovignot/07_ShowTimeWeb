@@ -22,8 +22,10 @@ function user_ticket() {
     if (user) {
       axios
         .get("http://localhost:3000/ticket?id_user=" + user._id)
-        .then(response => {
-          const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        .then((response) => {
+          const sortedData = response.data.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          );
           setdataTicket(sortedData);
         })
         // .then((response) => setdataTicket(response.data))
@@ -35,24 +37,43 @@ function user_ticket() {
   console.log(dataTicket);
 
   return (
-    <div>
-      <h1>MY TICKET LIST PAGE for {user ? user.firstname : "User"}</h1>
+    <div className="Ticketlistuser">
+      <h1 className="text-3xl font-bold">MY TICKET LIST</h1>
 
       {dataTicket &&
         dataTicket.map((item, i) => (
-          <div key={i}>
-            <div>
-              <QRCode
-                value={`/unit_concert?id=${item.id_concert}`}
-                size={150}
-              />
-              Concert name: {item.concertName}
-              {dayjs().to(dayjs(item.date))}
-              {dayjs(item.date).format("ddd, D MMM, YYYY h:mm A")}
-              Firstname: {item.firstname}
-              Lastname: {item.lastname}
-              Location: {item.location}
-              Price: {item.price}
+          <div className="ticketuser">
+            <div
+              className="card card-compact w-200 bg-base-100 shadow-xl"
+              key={i}
+            >
+              <div className="card-body">
+                <QRCode
+                  value={`/unit_concert?id=${item.id_concert}`}
+                  size={150}
+                />
+              </div>
+              <div className="ticketInfo">
+                <div className="ticketTitle">
+                  <h1 className="text-4xl font-bold"> {item.concertName}</h1>
+                  <p className="badge"> {dayjs().to(dayjs(item.date))}</p>
+                  <p>
+                    {" "}
+                    <b>{dayjs(item.date).format("ddd, D MMM, YYYY h:mm A")}</b>
+                  </p>
+                </div>
+                <div className="text-2xl font-bold">
+                  <p className="usernameticket">
+                    {item.firstname} {item.lastname}
+                  </p>
+                </div>
+                <div className="ticketLocation">
+                  <p className="text-3xl font-bold">
+                    Location: {item.location}
+                  </p>
+                  <p className="text-4xl font-bold"> {item.price} €</p>
+                </div>
+              </div>
             </div>
           </div>
         ))}

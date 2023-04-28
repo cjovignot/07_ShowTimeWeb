@@ -316,6 +316,7 @@ code {
 .btn {
 	width: 100px;
 }
+
 /* ADMIN
 /* ADMIN INDEX */
 /* .admin_infos {
@@ -396,17 +397,21 @@ code {
 .toggle {
 	display: flex;
 }
+
 .admin_crud {
 	align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 10px auto;
-    text-align: center;
+	display: flex;
+	flex-direction: column;
+	margin: 10px auto;
+	text-align: center;
 }
-.admin_crud input, select {
+
+.admin_crud input,
+select {
 	margin: 5px 30px;
 	height: 30px;
 }
+
 /* .admin_crud button {
 	width: 100px;
 	height: 40px;
@@ -419,17 +424,17 @@ code {
 	display: inline-block;
 	width: 50px;
 	height: 28px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
+}
+
+/* Hide default HTML checkbox */
+.switch input {
 	opacity: 0;
 	width: 0;
 	height: 0;
-  }
-  
-  /* The slider */
-  .slider {
+}
+
+/* The slider */
+.slider {
 	position: absolute;
 	cursor: pointer;
 	top: 0;
@@ -439,9 +444,9 @@ code {
 	background-color: #ccc;
 	-webkit-transition: .4s;
 	transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
 	position: absolute;
 	content: "";
 	height: 20px;
@@ -451,27 +456,616 @@ code {
 	background-color: white;
 	-webkit-transition: .4s;
 	transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
 	background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
+}
+
+input:focus+.slider {
 	box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked+.slider:before {
 	-webkit-transform: translateX(20px);
 	-ms-transform: translateX(20px);
 	transform: translateX(20px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+/* Rounded sliders */
+.slider.round {
 	border-radius: 34px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
 	border-radius: 50%;
-  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile_user {
+
+	display: flex;
+
+}
+
+.profile_user_comp {
+
+	margin-right: 10px;
+
+}
+
+.ticketuser {
+	display: flex;
+	margin: 10px;
+}
+
+.ticketuser .card {
+	flex-direction: row;
+	width: 100%;
+
+}
+
+.Ticketlistuser {
+	width: 80%;
+	text-align: center;
+}
+
+.ticketInfo {
+	width: 100%;
+	margin: 10px;
+}
+
+.ticketTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+.ticketLocation {
+	text-align: right;
+}
+
+.profiltitle {
+	margin-bottom: 10px;
+}
+
+.usernameticket {
+	text-align: left;
+	margin-top: 10px;
+}
+
+.profileside {
+	width: 20%;
+	text-align: center;
+	margin-left: 10px;
+}
+
+.contentprofil {
+	text-align: center;
+}
+
+.userprofileinfo {
+	text-align: left;
+	margin-bottom: 10px;
+}

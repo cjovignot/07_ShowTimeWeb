@@ -16,7 +16,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div>
+    <div className="profile_user">
       <Profile />
       <Profile_ticket />
     </div>
