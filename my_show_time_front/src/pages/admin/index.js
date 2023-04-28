@@ -4,7 +4,7 @@ import AdminInfos from '../../components/admin/infosComp';
 
 export default function Page() {
   return (
-    <div>
+    <div className="admin_index">
         <AdminInfos />
     </div>
   )
