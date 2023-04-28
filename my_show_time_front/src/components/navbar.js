@@ -87,25 +87,19 @@ const Navbar = () => {
     router.push(`/search?artist_name=${artistName}`);
   };
   return (
+
+
     <div>
       <header>
         <nav className="navbar background">
           <ul className="nav-list">
             <div className="logo">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png"
-                className="home-logo"
-                alt="logo"
-              />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo" alt="logo"/>
             </div>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            {!user && (
-              <li>
-                <Link href="/Signup">Sign up</Link>
-              </li>
-            )}
+            <li><Link href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</Link></li>
+              {!user && (
+                <li><Link href="/Signup" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Sign up</Link></li>
+              )}
             <li>
               {user ? (
                 <>
@@ -114,21 +108,17 @@ const Navbar = () => {
                     {user.lastname[0]}
                   </span>
                   <Link href="/user_profile">
-                    <button>Profile</button>
+                    <button class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile</button>
                   </Link>
-                  <button onClick={handleLogout}>Logout</button>
+                  <button onClick={handleLogout} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</button>
                 </>
               ) : (
-                <button onClick={handleLoginToggle}>Login</button>
+                <button onClick={handleLoginToggle} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</button>
               )}
             </li>
-            <li>
-              <Link href="/about">About Us</Link>
-            </li>
+            <li><Link href="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</Link></li>
             {isAdmin && ( // Add this condition
-              <li>
-                <Link href="/admin">Admin</Link>
-              </li>
+              <li><Link href="/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Admin</Link></li>
             )}
           </ul>
           <div className="rightNav">
@@ -144,6 +134,7 @@ const Navbar = () => {
 
       {showLogin && <Login onClose={handleLoginClose} />}
       {showProfile && user && <Profile user={user} />}
+
     </div>
   );
 };
