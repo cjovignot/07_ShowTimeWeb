@@ -33,8 +33,8 @@ function categoryConcerts({ category }) {
     <tbody>
       <td><b>{ category.name }</b></td>
       <td>{ categoryConcerts }</td>
-      <td><button>EDIT</button></td>
-      <td><button onClick={() => handleDelete(item._id)}>DELETE</button></td>
+      <td><button className="btn btn-outline btn-secondary">EDIT</button></td>
+      <td><button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id)}>DELETE</button></td>
     </tbody>
   );
 };

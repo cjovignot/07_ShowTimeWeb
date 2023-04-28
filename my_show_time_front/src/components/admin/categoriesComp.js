@@ -31,21 +31,23 @@ function adminCategories() {
 
   return (
     <div class="admin_concert">
-      <Link href="/admin"><button>Back</button></Link>
-      <h1>MUSIC GENRES MANAGER PAGE</h1>
+      <Link href="/admin"><button class="btn">Back</button></Link>
+      <h1 class="text-3xl font-bold">MUSIC GENRES MANAGER PAGE</h1>
       
-      <table>
-          <thead>
-            <tr>
-              <th><h3>MUSIC GENRES</h3></th>
-              <th><h3>NBR CONCERTS</h3></th>
-            </tr>
-          </thead>
-            {dataCategories && dataCategories.map((item, i) => (
-              <Category category={ item }/>
-              ))
-            }
-      </table>
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+            <thead>
+              <tr>
+                <th><h3>MUSIC GENRES</h3></th>
+                <th><h3>NBR CONCERTS</h3></th>
+              </tr>
+            </thead>
+              {dataCategories && dataCategories.map((item, i) => (
+                <Category category={ item }/>
+                ))
+              }
+        </table>
+      </div>
     </div>
 
   );

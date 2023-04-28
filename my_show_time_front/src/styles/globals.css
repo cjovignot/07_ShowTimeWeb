@@ -313,12 +313,9 @@ code {
 
 
 
-.btn {
-	width: 100px;
-}
-/* ADMIN
+/* ADMIN */
 /* ADMIN INDEX */
-/* .admin_infos {
+.admin_infos {
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,7 +324,25 @@ code {
     max-width: 60%;
     min-height: 67.5vh;
 }
-.admin_infos a {
+.admin_infos .btn {
+	width: 300px;
+	margin: 3px;
+}
+.admin_infos h1 {
+	margin: 20px 0;
+}
+
+
+.admin_concert {
+	margin: auto;
+    width: 70%;
+}
+.table :where(th, td) {
+    white-space: nowrap;
+    padding: 0.5rem;
+    vertical-align: middle;
+}
+/*.admin_infos a {
 	text-decoration: none;
 	color: black;
 	margin: 5px;
