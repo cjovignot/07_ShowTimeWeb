@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router";  
+// import styles from "../styles/globals.css";
 
 function SignupComponent() {
   const [firstname, setFirstname] = useState("");
@@ -81,7 +82,7 @@ function SignupComponent() {
               className="home-logo"
               alt="logo"
             />
-            <p className={errorMessage ? styles.error : ""}>{errorMessage}</p>
+            <p className="errormessage">{errorMessage}</p>
           </div>
           <label>First name:</label>
           <br />
