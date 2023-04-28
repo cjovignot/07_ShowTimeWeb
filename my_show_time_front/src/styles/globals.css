@@ -1069,3 +1069,16 @@ input:checked+.slider:before {
 	text-align: left;
 	margin-bottom: 10px;
 }
+
+.unitconcertuser {
+	display: flex;
+}
+
+.unitconcertinfo {
+	text-align: center;
+	width: 100%;
+}
+
+.unitconcertdetail {
+	margin-top: 20px;
+}

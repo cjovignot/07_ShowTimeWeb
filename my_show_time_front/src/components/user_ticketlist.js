@@ -56,13 +56,16 @@ function user_ticket() {
               <div className="ticketInfo">
                 <div className="ticketTitle">
                   <h1 className="text-4xl font-bold"> {item.concertName}</h1>
-                  <p className="badge"> {dayjs().to(dayjs(item.date))}</p>
+
                   <p>
-                    {" "}
+                    <span className="badge">
+                      {" "}
+                      {dayjs().to(dayjs(item.date))}
+                    </span>
                     <b>{dayjs(item.date).format("ddd, D MMM, YYYY h:mm A")}</b>
                   </p>
                 </div>
-                <div className="text-2xl font-bold">
+                <div className="text-2xl ">
                   <p className="usernameticket">
                     {item.firstname} {item.lastname}
                   </p>

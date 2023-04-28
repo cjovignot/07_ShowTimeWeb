@@ -54,21 +54,30 @@ function UnitConcert() {
 
   return (
     <div>
-      <div>
-        <h1>{concert.name}</h1>
-        <h3>{concert.artist_name}</h3>
+      <div className="unitconcertuser">
         <img src={concert.concert_img} width={250} height={200} />
-        {categories &&
-          categories.map((item) => {
-            if (item._id === concert.category_id) {
-              return <p key={item._id}>Genre: {item.name}</p>;
-            }
-            return null;
-          })}
-        <p>Location: {concert.location}</p>
-        <p>{dayjs().to(dayjs(concert.concert_date))}</p>
-        <p> {dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
-        <h3>Price: {concert.price}€</h3>
+        <div className="unitconcertinfo">
+          <h1 className="text-9xl font-bold">{concert.name}</h1>
+          <h3 className="text-8xl font-bold">{concert.artist_name}</h3>
+          <div className="unitconcertdetail">
+            {categories &&
+              categories.map((item) => {
+                if (item._id === concert.category_id) {
+                  return <p key={item._id}>Genre: {item.name}</p>;
+                }
+                return null;
+              })}
+            <p>Location: {concert.location}</p>
+            <p>{dayjs().to(dayjs(concert.concert_date))}</p>
+            <p>
+              {" "}
+              {dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}
+            </p>
+            <h3>Price: {concert.price}€</h3>
+          </div>
+        </div>
+      </div>
+      <div>
         {remainingPlaces > 0 ? (
           <h3>Remaining Places: {remainingPlaces}</h3>
         ) : (
@@ -76,11 +85,11 @@ function UnitConcert() {
             FULL / BOOKING IS NO LONGER AVAILABLE
           </h3>
         )}
-      </div>
 
-      {remainingPlaces > 0 && (
-        <TicketBuy concert={concert} updatePlaceCount={updatePlaceCount} />
-      )}
+        {remainingPlaces > 0 && (
+          <TicketBuy concert={concert} updatePlaceCount={updatePlaceCount} />
+        )}
+      </div>
     </div>
   );
 }
