@@ -26,7 +26,12 @@ function ticketsList() {
     
     useEffect(() => {
       axios.get('http://localhost:3000/ticket?id_concert=' + id)
-        .then(response => setTicketsConcert(response.data))
+        
+        .then(response => {
+          const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+          setTicketsConcert(sortedData);
+        })
+        // .then(response => setTicketsConcert(response.data))
         .then((response) => response)
         .catch(error => console.error(error));
     }, []);
