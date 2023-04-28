@@ -43,14 +43,14 @@ function adminInfos() {
 
     
     return (
-        <div class="admin_infos">
-            <h1 class="text-3xl font-bold">ADMINISTRATOR PANEL</h1>
+        <div className="admin_infos">
+            <h1 className="text-3xl font-bold">ADMINISTRATOR PANEL</h1>
             <table>
                 <tbody>
                     <thead>
                         <tr>
                             <Link href="/admin/categories/">
-                            <th colspan="2" className="btn btn-wide" >GENRES :
+                            <th colspan="2" className="btn btn-wide" >GENRES : 
                                 <span> </span>
                                 { dataCategories }
                             </th>
@@ -61,7 +61,7 @@ function adminInfos() {
                     <thead>
                         <tr>
                             <Link href="/admin/concerts/">
-                            <th colspan="2" className="btn btn-wide" >CONCERTS :
+                            <th colspan="2" className="btn btn-wide" >CONCERTS : 
                                 <span> </span>
                                 { dataConcerts }
                                 </th>
@@ -72,7 +72,7 @@ function adminInfos() {
                     <thead>
                         <tr>
                             <Link href="/admin/users/">
-                            <th colspan="2" className="btn btn-wide" >USERS :
+                            <th colspan="2" className="btn btn-wide" >USERS : 
                                 <span> </span>
                                 { dataUsers }
                                 </th>

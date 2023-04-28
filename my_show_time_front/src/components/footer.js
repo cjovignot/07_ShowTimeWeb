@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <footer className="footer">
+      <footer className="footerwankers">
         <p className="text-footer">
           Copyright - ShowTimeByWankers
         </p>

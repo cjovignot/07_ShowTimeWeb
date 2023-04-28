@@ -91,40 +91,40 @@ const Navbar = () => {
 
     <div>
       <header>
-        <nav className="navbar background">
-          <ul className="nav-list">
-            <div className="logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo" alt="logo"/>
-            </div>
-            <li><Link href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</Link></li>
-              {!user && (
-                <li><Link href="/Signup" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Sign up</Link></li>
-              )}
-            <li>
-              {user ? (
-                <>
-                  <span>
-                    {user.firstname[0]}
-                    {user.lastname[0]}
-                  </span>
-                  <Link href="/user_profile">
-                    <button class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile</button>
-                  </Link>
-                  <button onClick={handleLogout} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Logout</button>
-                </>
-              ) : (
-                <button onClick={handleLoginToggle} class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</button>
-              )}
-            </li>
-            <li><Link href="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</Link></li>
-            {isAdmin && ( // Add this condition
-              <li><Link href="/admin" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Admin</Link></li>
+        <nav className="navbar">
+          <div className="navbar_left">
+            <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo" alt="logo"/>
+
+            <Link href="/" className="btn btn-outline">Home</Link>
+
+            {!user && (
+              <Link href="/Signup" className="btn btn-outline">Sign up</Link>
             )}
-          </ul>
+            {user ? (
+              <>
+                <div> 
+                  {user.firstname[0]}
+                  {user.lastname[0]}
+                </div>
+
+                {/* <div className="profile_buttons"> */}
+                  <Link href="/user_profile" className="btn btn-outline">Profile</Link>
+                  <Link href="" onClick={handleLogout} className="btn btn-outline">Logout</Link>
+                {/* </div> */}
+                {isAdmin && ( // Add this condition
+                  <Link href="/admin" className="btn btn-outline">Admin</Link>
+                )}
+              </>
+            ) : (
+              <Link href="" onClick={handleLoginToggle} className="btn btn-outline"><div >Login</div></Link>
+            )}
+          </div>
+          
+        
           <div className="rightNav">
             <form onSubmit={handleSearchSubmit}>
               <input type="text" name="search" id="search" />
-              <button type="submit" className="btn btn-sm">
+              <button type="submit" className="btn">
                 Search
               </button>
             </form>

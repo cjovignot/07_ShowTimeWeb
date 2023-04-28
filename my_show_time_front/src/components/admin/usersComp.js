@@ -3,17 +3,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UserEditForm from "./UserEditComp";
 
-const handleDelete = async (itemId) => {
+const handleDelete = async (itemId, setDataUsers) => {
   try {
     const response = await axios.delete(
       `http://localhost:3000/users/${itemId}`
     );
-    console.log(response.data);
-    setItems(items.filter((item) => item._id !== itemId));
+    setDataUsers(prevTickets => prevTickets.filter(item => item._id !== itemId));
   } catch (error) {
     console.error(error);
   }
-  window.location.reload(false);
 };
 
 function adminUsers() {
@@ -62,54 +60,37 @@ function adminUsers() {
   };
 
   return (
-    <div class="admin_concert">
-      <Link href="/admin">
-        <button class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Back</button>
-      </Link>
-      <h1>USERS MANAGER PAGE</h1>
+    <div className="admin_users">
+      <Link href="/admin"><button className="btn" id="back_button">Back</button></Link>
+      <h1 className="text-3xl font-bold">USERS MANAGER PAGE</h1>
 
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <h3>ID</h3>
-            </th>
-            <th>
-              <h3>FIRSTNAME</h3>
-            </th>
-            <th>
-              <h3>LASTNAME</h3>
-            </th>
-            <th>
-              <h3>EMAIL</h3>
-            </th>
-            <th>
-              <h3>STATUS</h3>
-            </th>
-          </tr>
-        </thead>
-        {dataUsers &&
-          dataUsers.map((item, i) => (
+      <div className="overflow-x-auto">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th><h3>ID</h3></th>
+              <th><h3>FIRSTNAME</h3></th>
+              <th><h3>LASTNAME</h3></th>
+              <th><h3>EMAIL</h3></th>
+              <th><h3>STATUS</h3></th>
+            </tr>
+          </thead>
+          {dataUsers && dataUsers.map((item, i) => (
             <tbody>
               <td key={i}>{item._id}</td>
               <td key={i}>{item.firstname}</td>
               <td key={i}>{item.lastname}</td>
               <td key={i}>{item.email}</td>
-              {item.isAdmin == true && (
-                <td key={i}>
-                  <b>Admin</b>
-                </td>
-              )}
+              {item.isAdmin == true && (<td key={i}><b>Admin</b></td>)}
               {item.isAdmin == false && <td key={i}>User</td>}
               <td>
-                <button onClick={() => handleEdit(item)}>EDIT</button>
-              </td>
-              <td>
-                <button onClick={() => handleDelete(item._id)}>DELETE</button>
+                <button className="btn btn-info" onClick={() => handleEdit(item)}>EDIT</button>
+                <button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setDataUsers)}>DELETE</button>
               </td>
             </tbody>
           ))}
-      </table>
+        </table>
+      </div>
       {showEditForm && (
         <UserEditForm
           user={selectedUser}

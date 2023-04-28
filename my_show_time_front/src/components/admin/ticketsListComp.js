@@ -26,7 +26,6 @@ function ticketsList() {
     
     useEffect(() => {
       axios.get('http://localhost:3000/ticket?id_concert=' + id)
-        
         .then(response => {
           const sortedData = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
           setTicketsConcert(sortedData);
@@ -39,10 +38,10 @@ function ticketsList() {
   
 
   return (
-    <div class="admin_concert">
-        This is the tickets list
-        <table>
-
+    <div className="admin_concert">
+      <h1 class="text-2xl font-bold">CONCERT TICKET LIST</h1>
+      <div className="overflow-x-auto">
+        <table className="table w-full">
             <thead>
               <tr>
                 <td><h3>CONCERT NAME</h3></td>
@@ -57,17 +56,18 @@ function ticketsList() {
             {dataTicketsConcert && dataTicketsConcert.map((item, i) => {
                 return (
                 <tr>
-                    <td key={i}>{ item.concertName }</td>
+                    <td key={i}><b>{ item.concertName }</b></td>
                     <td>{ item.firstname }</td>
                     <td>{ item.lastname }</td>
                     <td>{ dayjs().to(dayjs( item.date )) }</td>
                     <td>{ dayjs(item.date).format('ddd, D MMM, YYYY h:mm A') }</td>
                     <td>{ item.location }</td>
                     <td>{ item.price }</td>
-                    <td><button onClick={() => handleDelete(item._id, setTicketsConcert)}>DELETE</button></td>
+                    <td><button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setTicketsConcert)}>DELETE</button></td>
                 </tr>
                 )})}
         </table>
+      </div>
     </div>
 
   );

@@ -31,10 +31,11 @@ function unitConcert() {
   // console.log(dataCategory);
 
   return (
-    <div class="admin_concert">
-      <Link href="/admin"><button>Back</button></Link>
-      <h1>CONCERT MANAGER PAGE</h1>
-        <table>
+    <div className="admin_concert">
+      <Link href="/admin"><button className="btn">Back</button></Link>
+      <h1 class="text-3xl font-bold">CONCERT</h1>
+      <div className="overflow-x-auto">
+        <table className="table w-full">
             <thead>
               <tr>
                 <td><h3>CONCERT</h3></td>
@@ -47,7 +48,7 @@ function unitConcert() {
                 <td><h3>IMAGE</h3></td>
               </tr>
             </thead>
-              {dataUnitConcert && <td>{ dataUnitConcert.name }</td>}
+              {dataUnitConcert && <td><b>{ dataUnitConcert.name }</b></td>}
               {dataCategory && <td>{ dataCategory.name }</td>}
               {dataUnitConcert && <td>{ dayjs().to(dayjs( dataUnitConcert.concert_date )) }</td>}
               {dataUnitConcert && <td>{ dayjs(dataUnitConcert.concert_date).format('ddd, D MMM, YYYY h:mm A') }</td>}
@@ -56,6 +57,7 @@ function unitConcert() {
               {dataUnitConcert && <td>{ dataUnitConcert.place_nbr }</td>}
               {dataUnitConcert && <td>{ dataUnitConcert.concert_img }</td>}
         </table>
+      </div>
     </div>
   );
 };

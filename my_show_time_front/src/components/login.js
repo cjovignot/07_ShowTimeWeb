@@ -54,16 +54,17 @@ const Login = ({ onClose }) => {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleSubmit}>
           <label>
-            Email:
-            <input
+            <p className="text-2xl font-bold"> Email: </p>
+           
+            <input className="nav-input"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
           <label>
-            Password:
-            <input
+          <p className="text-2xl font-bold"> Password: </p>
+            <input className="nav-input"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
