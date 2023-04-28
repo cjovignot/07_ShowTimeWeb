@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UserEditForm from "./UserEditComp"; // Import the UserEditForm component
+import UserEditForm from "./UserEditComp";
 
 const handleDelete = async (itemId) => {
   try {
@@ -10,10 +10,8 @@ const handleDelete = async (itemId) => {
     );
     console.log(response.data);
     setItems(items.filter((item) => item._id !== itemId));
-    // handle success response
   } catch (error) {
     console.error(error);
-    // handle error response
   }
   window.location.reload(false);
 };
@@ -51,7 +49,6 @@ function adminUsers() {
       .then(() => {
         setShowEditForm(false);
 
-        // Refresh data by making a new API request
         axios
           .get("http://localhost:3000/users")
           .then((response) => setDataUsers(response.data))

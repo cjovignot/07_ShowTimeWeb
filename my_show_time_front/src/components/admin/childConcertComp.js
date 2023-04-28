@@ -35,7 +35,13 @@ function concertCategory({ concert, handleDelete }) {
 
   return (
     <tbody>
-      <td><Link href={{ pathname: "/admin/concert/", query: { id: concert._id } }}><b>{ concert.name }</b></Link></td>
+      <td>
+        <Link
+          href={{ pathname: "/admin/concert/", query: { id: concert._id } }}
+        >
+          <b>{concert.name}</b>
+        </Link>
+      </td>
 
       {categoryName &&
         categoryName.map((item, i) => {

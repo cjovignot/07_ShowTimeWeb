@@ -11,6 +11,7 @@ function BuyTicket(props) {
 
   const [user, setUser] = useState(null);
   const { concert } = props;
+  console.log(concert);
 
   useEffect(() => {
     const storedUser = Cookie.get("userInfo");
@@ -58,7 +59,7 @@ function BuyTicket(props) {
           lastname: form.lastName,
           id_concert: concert._id,
           concertName: concert.name,
-          date: "2023-02-03", // NEED TO GET THE VARIABLE ONCE IT IS SET IN CONCERT CREATION
+          date: concert.concert_date,
           location: concert.location,
           price: concert.price,
           id_user: userId,

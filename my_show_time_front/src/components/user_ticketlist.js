@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import QRCode from "react-qr-code";
+import * as dayjs from "dayjs";
+
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 function user_ticket() {
   const [dataTicket, setdataTicket] = useState(null);
@@ -39,7 +43,8 @@ function user_ticket() {
                 size={150}
               />
               Concert name: {item.concertName}
-              Concert ID: {item.id_concert}
+              {dayjs().to(dayjs(item.date))}
+              {dayjs(item.date).format("ddd, D MMM, YYYY h:mm A")}
               Firstname: {item.firstname}
               Lastname: {item.lastname}
               Location: {item.location}

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import TicketBuy from "../components/BuyTicket";
+import * as dayjs from "dayjs";
+
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 function UnitConcert() {
   const router = useRouter();
@@ -62,6 +66,8 @@ function UnitConcert() {
             return null;
           })}
         <p>Location: {concert.location}</p>
+        <p>{dayjs().to(dayjs(concert.concert_date))}</p>
+        <p> {dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
         <h3>Price: {concert.price}€</h3>
         {remainingPlaces > 0 ? (
           <h3>Remaining Places: {remainingPlaces}</h3>
