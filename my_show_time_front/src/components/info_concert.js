@@ -33,13 +33,15 @@ function ConcertInfo({ concert }) {
     <div className="product-list">
         <div class="card">
 
-          <div className="title">
-            <h1 className="text-3xl font-bold">{concert.name}</h1>
-            <h2 className="text-xl font-bold">{concert.artist_name}</h2>
-          </div>
 
           <div className="image">
             <img src={concert.concert_img} width={250} height={200} />
+          </div>
+
+          
+          <div className="title">
+            <h1 className="text-3xl font-bold">{concert.name}</h1>
+            <h2 className="text-xl font-bold">{concert.artist_name}</h2>
           </div>
 
           <div className="text-list">

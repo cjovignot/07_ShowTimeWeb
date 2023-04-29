@@ -53,13 +53,15 @@ function UnitConcert() {
   const remainingPlaces = concert.place_nbr - placeCount;
 
   return (
-    <div>
-      <div className="unitconcertuser">
-        <img src={concert.concert_img} width={250} height={200} />
-        <div className="unitconcertinfo">
-          <h1 className="text-9xl font-bold">{concert.name}</h1>
-          <h3 className="text-8xl font-bold">{concert.artist_name}</h3>
-          <div className="unitconcertdetail">
+    <div className="unit_concert_vignette">
+
+      <div className="card card-side bg-base-100 shadow-xl">
+        <img src={concert.concert_img}/>
+
+        <div className="card-body">
+          <h2 className="text-3xl font-bold">{concert.name}</h2>
+          <h2 className="text-l font-bold">{concert.artist_name}</h2>
+          <p>
             {categories &&
               categories.map((item) => {
                 if (item._id === concert.category_id) {
@@ -67,30 +69,49 @@ function UnitConcert() {
                 }
                 return null;
               })}
-            <p>Location: {concert.location}</p>
-            <p>{dayjs().to(dayjs(concert.concert_date))}</p>
-            <p>
-              {" "}
-              {dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}
-            </p>
-            <h3>Price: {concert.price}€</h3>
+          </p>
+          <p className="text-l font-bold">Location: {concert.location}</p>
+          <p>{dayjs().to(dayjs(concert.concert_date))}</p>
+          <p>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}
+          </p>
+          <h3 className="text-l font-bold">Price: {concert.price}€</h3>
+
+          
+          <div>
+            {remainingPlaces > 0 ? (
+              <h3 className="text-orange-500 font-bold">Remaining Places: {remainingPlaces}</h3>
+            ) : (
+              <h3 style={{ color: "red" }}>
+                FULL / BOOKING IS NO LONGER AVAILABLE
+              </h3>
+            )}
+            </div>
+
+          <div className="card-actions justify-center">
+            <label htmlFor="my-modal-6" className="btn">BUY</label>
+            {/* <button href="#my-modal-2" className="btn btn-primary">BUY</button> */}
           </div>
+
+
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          
+          <div className="modal modal-bottom sm:modal-middle">
+            
+            <div className="modal-box">
+              
+              {remainingPlaces > 0 && (
+                <TicketBuy concert={concert} updatePlaceCount={updatePlaceCount} />
+              )}
+              <div className="modal-action mt-10 justify-center">
+                <label htmlFor="my-modal-6" className="btn">CANCEL</label>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div>
-        {remainingPlaces > 0 ? (
-          <h3>Remaining Places: {remainingPlaces}</h3>
-        ) : (
-          <h3 style={{ color: "red" }}>
-            FULL / BOOKING IS NO LONGER AVAILABLE
-          </h3>
-        )}
 
-        {remainingPlaces > 0 && (
-          <TicketBuy concert={concert} updatePlaceCount={updatePlaceCount} />
-        )}
       </div>
-    </div>
   );
 }
 

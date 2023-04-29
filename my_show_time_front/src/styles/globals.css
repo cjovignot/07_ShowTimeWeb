@@ -3,20 +3,25 @@
 @tailwind utilities;
 
 footer {
-	background-color: #000;
-	text-align: center;
-	padding: 15px;
-	margin-top: 30px;
+    background-color: #000;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    width: 100%;
+}
+.main {
+	min-height: 88.5vh;
 }
 
 /* NAVBAR */
 .navbar {
 	display: flex;
-	background: rgb(255, 255, 255);
+	/* background: rgb(255, 255, 255); */
+	border-bottom: 1px black solid;
 	position: fixed;
 	justify-content: space-between;
 	height: 100px;
-	z-index: 999;
+	z-index: 400;
 	top: 0;
 }
 
@@ -65,6 +70,7 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 120px;
+	margin-bottom: 70px;
 }
 
 .product-list {
@@ -75,14 +81,13 @@ footer {
 
 .product-list .card {
 	background-color: #f4f4f4;
-	/* padding: 1em; */
-	padding: 20px;
 	margin: 15px;
 	box-shadow: 0px 10px 5px #1a1818;
 }
 
 .card img {
 	width: 100%;
+	border-radius: 13px;
 }
 
 .image {
@@ -92,14 +97,16 @@ footer {
 }
 
 .card .title {
-	font-size: 20px;
-	font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 .card .text-list {
 	margin-top: 1em;
-	text-align: left;
-	font-size: 15px;
+    text-align: left;
+    padding: 20px;
+    font-size: 15px;
 }
 
 
@@ -121,13 +128,14 @@ footer {
 
 
 .overlay::before {
+	z-index: 500;
 	content: "";
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.694);
 }
 
 .login {
@@ -139,15 +147,12 @@ footer {
 	padding: 2rem;
 	border-radius: 0.5rem;
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-	z-index: 100;
+	z-index: 999;
 	text-align: center;
 }
-
-.login label {
-	display: block;
-	margin-bottom: 1rem;
+.login h1 {
+	margin-bottom: 20px;
 }
-
 .login input {
 	display: block;
 	width: 100%;
@@ -155,6 +160,9 @@ footer {
 	border-radius: 0.25rem;
 	border: 1px solid #ccc;
 	margin-bottom: 1rem;
+}
+.button-group button {
+	margin: 10px;
 }
 
 /* .button-group {
@@ -177,18 +185,41 @@ footer {
 
 
 
+/* UNIT CONCERT USER */
+.unit_concert_vignette {
+	margin-top: 130px!important;
+	width: 60%;
+    margin: auto;
+}
+.card-title h2 {
+	text-align: center;
+}
+.unit_concert_vignette img {
+    width: 48%;
+    height: auto;
+}
+.unit_concert_vignette button {
+	justify-content: center;
+}
 
 
 
-
-
-
-
-
-
-
-
-
+/* MODAL BUY */
+.buy_ticket {
+    align-items: center;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.nbr_tickets_buttons {
+	justify-content: space-between;
+    display: flex;
+    width: 80px;
+}
+.modal-action {
+	max-height: 100vh;
+}
 
 
 
@@ -247,6 +278,13 @@ footer {
 .admin_index {
 	margin-top: 130px;
 }
+.admin_label_edit {
+	display: flex;
+	margin: 15px 0;
+}
+.admin_label_edit input {
+	margin-left: 10px;
+}
 /* ADMIN INDEX */
 .admin_infos {
 	display: flex;
@@ -289,10 +327,6 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-.admin_concert h1 {
-	margin: 20px auto;
 }
 
 .table :where(th, td) {
@@ -376,6 +410,9 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+.admin_users button {
+	margin: 5px;
 }
 
 .admin_users h1 {

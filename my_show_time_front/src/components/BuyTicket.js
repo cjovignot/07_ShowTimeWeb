@@ -72,7 +72,11 @@ function BuyTicket(props) {
       const responses = await Promise.all(responsePromises);
       const purchasedTickets = responses.map((response) => response.data);
       setPurchasedTickets(purchasedTickets);
-      setMessage(`Congrats, you bought ${ticketCount} number of tickets!`);
+      setMessage(
+      <div className="mt-5">
+        <h3 className="text-2xl font-bold text-cyan-600 text-center">{purchasedTickets.length} Purchased Tickets</h3>
+        <h3 className="text-xl font-bold text-cyan-600 text-center">Thanks !</h3>
+      </div>);
       setTicketCount(0);
       setFormsData([]);
       props.updatePlaceCount();
@@ -85,52 +89,29 @@ function BuyTicket(props) {
   const totalPrice = concert.price * ticketCount;
 
   return (
-    <div>
-      <h2>Buy a ticket</h2>
+    <div className="buy_ticket">
+      <h2 className="text-3xl font-bold text-white">Buy a ticket</h2>
       {message && <p>{message}</p>}
-      <p>Select how many tickets would you like to buy?</p>
-      <button onClick={decrementTickets}>-</button>
-      <span>{ticketCount}</span>
-      <button onClick={incrementTickets}>+</button>
+      <div className="text-sm font-bold">Select how many tickets would you like to buy?</div>
+
+      <div className="nbr_tickets_buttons mt-5">
+        <button className="btn btn-xs btn-circle" onClick={decrementTickets}>-</button>
+        <span> {ticketCount} </span>
+        <button className="btn btn-xs btn-circle" onClick={incrementTickets}>+</button>
+      </div>
+
       {formsData.map((form, index) => (
         <div key={index}>
-          <h4>Ticket {index + 1}</h4>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={form.firstName}
-            onChange={(e) => handleChange(e, index)}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={form.lastName}
-            onChange={(e) => handleChange(e, index)}
-          />
+          <h4 className="text-2xl font-bold">Ticket {index + 1}</h4>
+          <input className="input input-bordered input-info w-full input-md mb-2" type="text" name="firstName" placeholder="First Name" value={form.firstName} onChange={(e) => handleChange(e, index)} />
+          <input className="input input-bordered input-info w-full input-md mb-2" type="text" name="lastName" placeholder="Last Name" value={form.lastName} onChange={(e) => handleChange(e, index)} />
         </div>
       ))}
       {ticketCount > 0 && (
         <>
-          <button onClick={handleSubmit}>Confirm</button>
           <span> Total price is: {totalPrice}€</span>
+          <button className="btn btn-success m-5" onClick={handleSubmit}>Confirm</button>
         </>
-      )}
-
-      {purchasedTickets.length > 0 && (
-        <div>
-          <h3>Purchased Tickets</h3>
-          {purchasedTickets.map((ticket, index) => (
-            <div key={index}>
-              <h4>Ticket {index + 1}</h4>
-              <QRCode
-                value={`/unit_concert?id=${ticket.id_concert}`}
-                size={150}
-              />
-            </div>
-          ))}
-        </div>
       )}
     </div>
   );

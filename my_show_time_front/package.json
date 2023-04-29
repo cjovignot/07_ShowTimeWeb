@@ -22,7 +22,8 @@
     "react-datetime": "^3.2.0",
     "react-dom": "18.2.0",
     "react-qr-code": "^2.0.11",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "theme-change": "^2.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

@@ -60,7 +60,7 @@ const ProfileComp = () => {
   };
 
   return (
-    <div className="profileside">
+    <div className="profileside mr-10">
       <div className="profiltitle">
         <h1 className="text-3xl font-bold">My profile</h1>
       </div>
@@ -70,8 +70,8 @@ const ProfileComp = () => {
             <form onSubmit={handleSubmit}>
               <table>
                 <tr>
-                  <td>
-                    <b>First Name:</b>
+                  <td className="text-left">
+                    <b>First Name</b>
                   </td>
                   <td>
                     <input
@@ -84,8 +84,8 @@ const ProfileComp = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>
-                    <b>Last Name:</b>
+                  <td className="text-left">
+                    <b>Last Name</b>
                   </td>
                   <td>
                     <input
@@ -98,8 +98,8 @@ const ProfileComp = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>
-                    <b>Email:</b>
+                  <td className="text-left">
+                    <b>Email</b>
                   </td>
                   <td>
                     <input
@@ -113,17 +113,17 @@ const ProfileComp = () => {
                 </tr>
                 <tr>
                   <td>
-                    <button className="btn" type="submit">
-                      Save
-                    </button>
-                  </td>
-                  <td>
                     <button
-                      className="btn"
+                      className="btn mt-5 btn-error"
                       type="button"
                       onClick={() => setEditing(false)}
                     >
                       Cancel
+                    </button>
+                  </td>
+                  <td>
+                    <button className="btn mt-5 btn-success" type="submit">
+                      Save
                     </button>
                   </td>
                 </tr>

@@ -51,30 +51,15 @@ const Login = ({ onClose }) => {
   return (
     <div className="overlay">
       <div className="login">
+        <h1 className="text-3xl font-bold text-black">LOGIN</h1>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleSubmit}>
-          <label>
-            <p className="text-2xl font-bold"> Email: </p>
-           
-            <input className="nav-input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <label>
-          <p className="text-2xl font-bold"> Password: </p>
-            <input className="nav-input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+          <input placeholder="Email" className="nav-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input className="nav-input" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          
           <div className="button-group">
             <button className="btn btn-success" type="submit">Log In</button>
-            <button class="btn btn-error" type="button" onClick={onClose}>
-              Cancel
-            </button>
+            <button class="btn btn-error" type="button" onClick={onClose}>Cancel</button>
           </div>
         </form>
       </div>

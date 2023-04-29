@@ -61,7 +61,7 @@ function adminCategories() {
         />
       )}
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-10">
         <table className="table w-full">
           {dataCategories &&
             dataCategories.map((item, i) => (
@@ -78,9 +78,9 @@ function adminCategories() {
                 </thead>
                 <Category category={item} />
                 <td>
-                  <button className="btn btn-info">EDIT</button>
+                  <button className="btn btn-info ml-5">EDIT</button>
                   <button
-                    className="btn btn-outline btn-error"
+                    className="btn btn-outline btn-error ml-5"
                     onClick={() => handleDelete(item._id, setDataCategories)}
                   >
                     DELETE

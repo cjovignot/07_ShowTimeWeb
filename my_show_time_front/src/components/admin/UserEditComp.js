@@ -27,33 +27,35 @@ function UserEditForm({ user, onSubmit, onCancel }) {
 
   return (
     <div className="edit-form-container">
-      <form className="edit-form" onSubmit={handleSubmit}>
-        <h2>Edit User</h2>
-        <label>First Name</label>
+      <form className="edit-form card w-96 bg-base-100 shadow-xl" onSubmit={handleSubmit}>
+        <h2 className="text-2xl font-bold text-black text-center">Edit User</h2>
+        <label className="text-l font-bold text-black">First Name</label>
         <input
           type="text"
+          className="input input-bordered input-info w-full max-w-xs"
           name="firstname"
           value={formData.firstname}
           onChange={handleChange}
         />
-        <label>Last Name</label>
+        <label className="text-l font-bold text-black">Last Name</label>
         <input
           type="text"
+          className="input input-bordered input-info w-full max-w-xs"
           name="lastname"
           value={formData.lastname}
           onChange={handleChange}
         />
-        <label>Email</label>
+        <label className="text-l font-bold text-black">Email</label>
         <input
           type="email"
+          className="input input-bordered input-info w-full max-w-xs"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
-        <label>
-          Admin
-          <input
+        <label className="admin_label_edit text-l font-bold text-black">Admin<input
             type="checkbox"
+            className="checkbox checkbox-info"
             name="isAdmin"
             checked={formData.isAdmin}
             onChange={(e) =>
@@ -62,10 +64,10 @@ function UserEditForm({ user, onSubmit, onCancel }) {
           />
         </label>
         <div className="edit-form-buttons">
-          <button type="submit">Save</button>
-          <button type="button" onClick={onCancel}>
+          <button className="btn btn-error" type="button" onClick={onCancel}>
             Cancel
           </button>
+          <button className="btn btn-success" type="submit">Save</button>
         </div>
       </form>
       <style jsx>{`
@@ -83,10 +85,10 @@ function UserEditForm({ user, onSubmit, onCancel }) {
         }
 
         .edit-form {
-          background-color: white;
+          background-color: #9fa6b4ed;
           padding: 20px;
           border-radius: 5px;
-          width: 400px;
+          width: auto;
           box-sizing: border-box;
         }
 

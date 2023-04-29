@@ -50,10 +50,7 @@ function adminInfos() {
                     <thead>
                         <tr>
                             <Link href="/admin/categories/">
-                            <th colspan="2" className="btn btn-wide" >GENRES : 
-                                <span> </span>
-                                { dataCategories }
-                            </th>
+                            <th colspan="2" className="btn btn-wide" >{ dataCategories } GENRES</th>
                             </Link>
                         </tr>
                     </thead>
@@ -61,10 +58,7 @@ function adminInfos() {
                     <thead>
                         <tr>
                             <Link href="/admin/concerts/">
-                            <th colspan="2" className="btn btn-wide" >CONCERTS : 
-                                <span> </span>
-                                { dataConcerts }
-                                </th>
+                            <th colspan="2" className="btn btn-wide" >{ dataConcerts } CONCERTS</th>
                             </Link>
                         </tr>
                     </thead>
@@ -72,10 +66,7 @@ function adminInfos() {
                     <thead>
                         <tr>
                             <Link href="/admin/users/">
-                            <th colspan="2" className="btn btn-wide" >USERS : 
-                                <span> </span>
-                                { dataUsers }
-                                </th>
+                            <th colspan="2" className="btn btn-wide" >{ dataUsers } USERS/ADMINS</th>
                             </Link>
                         </tr>
                     </thead>

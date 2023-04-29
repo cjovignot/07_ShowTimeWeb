@@ -55,7 +55,7 @@ function unitConcert() {
               {dataUnitConcert && <td>{ dataUnitConcert.location }</td>}
               {dataUnitConcert && <td>{ dataUnitConcert.price }</td>}
               {dataUnitConcert && <td>{ dataUnitConcert.place_nbr }</td>}
-              {dataUnitConcert && <td>{ dataUnitConcert.concert_img }</td>}
+              {dataUnitConcert && <td><img src={dataUnitConcert.concert_img} width="100" /></td>}
         </table>
       </div>
     </div>
