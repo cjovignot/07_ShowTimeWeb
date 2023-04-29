@@ -31,7 +31,7 @@ function ConcertInfo({ concert }) {
 
   return (
     <div className="product-list">
-        <div class="card">
+        <div class="card bg-slate-950">
 
 
           <div className="image">

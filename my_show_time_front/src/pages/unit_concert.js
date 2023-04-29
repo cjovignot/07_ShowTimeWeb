@@ -55,7 +55,7 @@ function UnitConcert() {
   return (
     <div className="unit_concert_vignette">
 
-      <div className="card card-side bg-base-100 shadow-xl">
+      <div className="card card-side shadow-xl bg-slate-950">
         <img src={concert.concert_img}/>
 
         <div className="card-body">
@@ -88,7 +88,7 @@ function UnitConcert() {
             </div>
 
           <div className="card-actions justify-center">
-            <label htmlFor="my-modal-6" className="btn">BUY</label>
+            <label htmlFor="my-modal-6" className="btn bg-green-700 hover:bg-sky-700">BUY</label>
             {/* <button href="#my-modal-2" className="btn btn-primary">BUY</button> */}
           </div>
 

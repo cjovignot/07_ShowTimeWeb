@@ -66,87 +66,51 @@ function SignupComponent() {
   return (
     <div className="App">
       <header className="AppHeader">
-        <form
-          className="form"
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          {/*when user submit the form , handleSubmit()
-		function will be called .*/}
-          <h2 className="showtime"> Show time !! </h2>
-          <h3> Sign-up for awesome concerts </h3>
-          <div className="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo" alt="logo" />
-          </div>
-          <label>First name:</label>
-          <br />
-            <input type="text" value={firstname} required onChange={(e) => { handleChange(e); }} />
-          <br />
-          {/*when user write in name input box , handleChange()
-			function will be called. */}
-          <label>Last name:</label>
-          <br />
-            <input type="text" value={lastname} required onChange={(e) => { handleLastnameChange(e); }} />
-          <br />
-          {/*when user write in age input box , handleAgeChange()
-			function will be called. */}
-          <label>Email:</label>
-          <br />
-            <input type="email" value={email} required onChange={(e) => { handleEmailChange(e); }} />
-          <br />
-          {/* when user write in email input box , handleEmailChange()
-			function will be called.*/}
-          <label>Password:</label>
-          <br />
-            <input type="password" value={password} required onChange={(e) => {handlePasswordChange(e);}}/>
-          <br />
-          {/* when user write in password input box ,
-				handlePasswordChange() function will be called.*/}
-          <label>Confirm Password:</label>
-          <br />
-            <input type="password" value={confPassword} required onChange={(e) => {handleConfPasswordChange(e);}}/>
-          <br />
-          {/* when user write in confirm password input box ,
-					handleConfPasswordChange() function will be called.*/}
-          <p className="errormessage">{errorMessage}</p>
-          <input className="btn btn-active" type="submit" value="Sign-up" />
-        </form>
-
-
-
-        <div className="card w-96 bg-neutral text-neutral-content">
+        <div className="card w-96 bg-white opacity-90 text-neutral-content m-auto">
           
-          <div className="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="home-logo h-50 w-50"  alt="logo" />
-          </div>
-          <div className="card-body items-center text-center">
+          <div className="items-center p-8 text-center">
+          
+            <h2 className="text-3xl font-bold items-center flex justify-center text-stone-950"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="logo home-logo" alt="logo"/>SIGNUP</h2>
 
-            <h2 className="card-title">SIGNUP</h2>
+            <form className="form" onSubmit={(e) => { handleSubmit(e); }} >
+              <br />
+                <input className="input w-full max-h-10" type="text" value={firstname} placeholder="First name" required onChange={(e) => { handleChange(e); }} />
+              <br />
+              <br />
+                <input className="input w-full max-h-10" type="text" value={lastname} placeholder="Last name" required onChange={(e) => { handleLastnameChange(e); }} />
+              <br />
+              <br />
+                <input className="input w-full max-h-10" type="email" placeholder="youremail@showtime.com" value={email} required onChange={(e) => { handleEmailChange(e); }} />
+              <br />
+              <br />
+                <input className="input w-full max-h-10" type="password" placeholder="Password" value={password} required onChange={(e) => {handlePasswordChange(e);}}/>
+              <br />
+              <br />
+                <input className="input w-full max-h-10" type="password" placeholder="Confirm password" value={confPassword} required onChange={(e) => {handleConfPasswordChange(e);}}/>
+              <br />
 
-            <p>We are using cookies for no reason.</p>
-
-
-            <br />
-              <input type="text" value={firstname} placeholder="First name" required onChange={(e) => { handleChange(e); }} />
-            <br />
-            <br />
-              <input type="text" value={lastname} placeholder="Last name" required onChange={(e) => { handleLastnameChange(e); }} />
-            <br />
-            <br />
-              <input type="email" placeholder="email" value={email} required onChange={(e) => { handleEmailChange(e); }} />
-            <br />
-            <br />
-              <input type="password" placeholder="Password" value={password} required onChange={(e) => {handlePasswordChange(e);}}/>
-            <br />
-            <br />
-              <input type="password" placeholder="Confirm password" value={confPassword} required onChange={(e) => {handleConfPasswordChange(e);}}/>
-            <br />
-
-            <div className="card-actions justify-end">
-              <p className="errormessage">{errorMessage}</p>
-              <button className="btn btn-primary" type="submit" value="Sign-up">SignUp</button>
-            </div>
+              <div>
+                {errorMessage && (
+                  <p className="alert alert-warning shadow-lg m-5 w-auto justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="stroke-current flex-shrink-0 h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      />
+                    </svg>
+                    <b>{errorMessage}</b>
+                  </p>
+                )}
+              </div>
+              <button className="btn btn-success mt-6" type="submit" value="Sign-up">SignUp</button>
+            </form>
 
           </div>
         </div>
