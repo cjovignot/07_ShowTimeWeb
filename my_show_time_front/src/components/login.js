@@ -60,10 +60,10 @@ const Login = ({ onClose }) => {
 
             <form className="form" onSubmit={handleSubmit}>
               <br />
-                <input className="input w-full max-h-10" placeholder="youremail@showtime.com" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input className="input w-full max-h-10 text-black" placeholder="youremail@showtime.com" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
               <br />
               <br />
-                <input className="input w-full max-h-10" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input className="input w-full max-h-10 text-black" placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               <br />
 
               <div>

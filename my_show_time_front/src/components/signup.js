@@ -74,19 +74,19 @@ function SignupComponent() {
 
             <form className="form" onSubmit={(e) => { handleSubmit(e); }} >
               <br />
-                <input className="input w-full max-h-10" type="text" value={firstname} placeholder="First name" required onChange={(e) => { handleChange(e); }} />
+                <input className="input w-full max-h-10 text-black" type="text" value={firstname} placeholder="First name" required onChange={(e) => { handleChange(e); }} />
               <br />
               <br />
-                <input className="input w-full max-h-10" type="text" value={lastname} placeholder="Last name" required onChange={(e) => { handleLastnameChange(e); }} />
+                <input className="input w-full max-h-10 text-black" type="text" value={lastname} placeholder="Last name" required onChange={(e) => { handleLastnameChange(e); }} />
               <br />
               <br />
-                <input className="input w-full max-h-10" type="email" placeholder="youremail@showtime.com" value={email} required onChange={(e) => { handleEmailChange(e); }} />
+                <input className="input w-full max-h-10 text-black" type="email" placeholder="youremail@showtime.com" value={email} required onChange={(e) => { handleEmailChange(e); }} />
               <br />
               <br />
-                <input className="input w-full max-h-10" type="password" placeholder="Password" value={password} required onChange={(e) => {handlePasswordChange(e);}}/>
+                <input className="input w-full max-h-10 text-black" type="password" placeholder="Password" value={password} required onChange={(e) => {handlePasswordChange(e);}}/>
               <br />
               <br />
-                <input className="input w-full max-h-10" type="password" placeholder="Confirm password" value={confPassword} required onChange={(e) => {handleConfPasswordChange(e);}}/>
+                <input className="input w-full max-h-10 text-black" type="password" placeholder="Confirm password" value={confPassword} required onChange={(e) => {handleConfPasswordChange(e);}}/>
               <br />
 
               <div>
