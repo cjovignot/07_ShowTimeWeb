@@ -5,10 +5,12 @@ import SortBy from "sort-by";
 
 import Concert from "./childConcertComp";
 import CrudConcert from "./crudConcertComp";
-
+import EditConcert from "./EditConcertComp";
 function adminConcert() {
   const [dataConcert, setdataConcert] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
+  const [editFormOpen, setEditFormOpen] = useState(false);
+  const [concertIdToEdit, setConcertIdToEdit] = useState(null);
 
   const handleDelete = async (itemId, setdataConcert) => {
     try {
@@ -22,6 +24,11 @@ function adminConcert() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleEdit = (itemId) => {
+    setConcertIdToEdit(itemId);
+    setEditFormOpen(true);
   };
 
   const refreshConcertList = () => {
@@ -63,6 +70,14 @@ function adminConcert() {
         />
       )}
 
+      {editFormOpen && (
+        <EditConcert
+          concertId={concertIdToEdit}
+          refreshConcertList={refreshConcertList}
+          onClose={() => setEditFormOpen(false)}
+        />
+      )}
+
       <div className="overflow-x-auto">
         <table className="table w-full">
           {dataConcert &&
@@ -98,7 +113,12 @@ function adminConcert() {
                 </thead>
                 <Concert concert={item} />
                 <td>
-                  <button className="btn btn-info">EDIT(WIP)</button>
+                  <button
+                    className="btn btn-info"
+                    onClick={() => handleEdit(item._id)}
+                  >
+                    EDIT
+                  </button>
                   <button
                     className="btn btn-outline btn-error"
                     onClick={() => handleDelete(item._id, setdataConcert)}

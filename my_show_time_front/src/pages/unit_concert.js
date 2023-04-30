@@ -54,9 +54,8 @@ function UnitConcert() {
 
   return (
     <div className="unit_concert_vignette">
-
       <div className="card card-side shadow-xl bg-slate-950">
-        <img src={concert.concert_img}/>
+        <img src={concert.concert_img} />
 
         <div className="card-body">
           <h2 className="text-3xl font-bold">{concert.name}</h2>
@@ -72,46 +71,51 @@ function UnitConcert() {
           </p>
           <p className="text-l font-bold">Location: {concert.location}</p>
           <p>{dayjs().to(dayjs(concert.concert_date))}</p>
-          <p>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}
-          </p>
+          <p>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
           <h3 className="text-l font-bold">Price: {concert.price}€</h3>
 
-          
           <div>
             {remainingPlaces > 0 ? (
-              <h3 className="text-orange-500 font-bold">Remaining Places: {remainingPlaces}</h3>
+              <h3 className="text-orange-500 font-bold">
+                Remaining Places: {remainingPlaces}
+              </h3>
             ) : (
               <h3 style={{ color: "red" }}>
                 FULL / BOOKING IS NO LONGER AVAILABLE
               </h3>
             )}
-            </div>
-
-          <div className="card-actions justify-center">
-            <label htmlFor="my-modal-6" className="btn bg-green-700 hover:bg-sky-700">BUY</label>
-            {/* <button href="#my-modal-2" className="btn btn-primary">BUY</button> */}
           </div>
 
-
+          <div className="card-actions justify-center">
+            {remainingPlaces > 0 && (
+              <label
+                htmlFor="my-modal-6"
+                className="btn bg-green-700 hover:bg-sky-700"
+              >
+                BUY
+              </label>
+            )}
+          </div>
           <input type="checkbox" id="my-modal-6" className="modal-toggle" />
-          
+
           <div className="modal modal-bottom sm:modal-middle">
-            
             <div className="modal-box">
-              
               {remainingPlaces > 0 && (
-                <TicketBuy concert={concert} updatePlaceCount={updatePlaceCount} />
+                <TicketBuy
+                  concert={concert}
+                  updatePlaceCount={updatePlaceCount}
+                />
               )}
               <div className="modal-action mt-10 justify-center">
-                <label htmlFor="my-modal-6" className="btn">CANCEL</label>
+                <label htmlFor="my-modal-6" className="btn">
+                  CANCEL
+                </label>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
-      </div>
+    </div>
   );
 }
 

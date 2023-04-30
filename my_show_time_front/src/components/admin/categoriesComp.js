@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Category from "./childCategoryComp";
 import CrudGenre from "./crudGenresComp";
+import EditCategory from "./EditCategoryComp";
 
 const handleDelete = async (itemId, setDataCategories) => {
   try {
@@ -21,6 +22,7 @@ const handleDelete = async (itemId, setDataCategories) => {
 function adminCategories() {
   const [dataCategories, setDataCategories] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [editingCategory, setEditingCategory] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -35,6 +37,9 @@ function adminCategories() {
     }
   };
 
+  const handleEdit = (category) => {
+    setEditingCategory(category);
+  };
   return (
     <div className="admin_genres">
       <Link href="/admin">
@@ -61,6 +66,22 @@ function adminCategories() {
         />
       )}
 
+      {editingCategory && (
+        <EditCategory
+          category={editingCategory}
+          onUpdate={(updatedCategory) => {
+            setDataCategories((prevCategories) =>
+              prevCategories.map((category) =>
+                category._id === updatedCategory._id
+                  ? updatedCategory
+                  : category
+              )
+            );
+          }}
+          onClose={() => setEditingCategory(null)}
+        />
+      )}
+
       <div className="overflow-x-auto mt-10">
         <table className="table w-full">
           {dataCategories &&
@@ -78,7 +99,13 @@ function adminCategories() {
                 </thead>
                 <Category category={item} />
                 <td>
-                  <button className="btn btn-info ml-5">EDIT</button>
+                  <button
+                    className="btn btn-info ml-5"
+                    onClick={() => handleEdit(item)}
+                  >
+                    EDIT
+                  </button>
+
                   <button
                     className="btn btn-outline btn-error ml-5"
                     onClick={() => handleDelete(item._id, setDataCategories)}

@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 footer {
-    background-color: #000;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-    width: 100%;
+	background-color: #000;
+	text-align: center;
+	padding: 15px;
+	margin-top: 30px;
+	width: 100%;
 }
+
 .main {
 	min-height: 88.5vh;
 }
@@ -31,7 +32,7 @@ footer {
 
 .logo {
 	height: 70px;
-	width: 70px!important;
+	width: 70px !important;
 	margin: 0 10px;
 }
 
@@ -99,16 +100,16 @@ footer {
 }
 
 .card .title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 20px;
 }
 
 .card .text-list {
 	margin-top: 1em;
-    text-align: left;
-    padding: 20px;
-    font-size: 15px;
+	text-align: left;
+	padding: 20px;
+	font-size: 15px;
 }
 
 
@@ -149,9 +150,11 @@ footer {
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 	z-index: 999;
 }
+
 .login h1 {
 	margin-bottom: 20px;
 }
+
 .login input {
 	width: 100%;
 	padding: 0.5rem;
@@ -159,6 +162,7 @@ footer {
 	border: 1px solid #ccc;
 	margin-bottom: 1rem;
 }
+
 .button-group button {
 	margin: 10px;
 }
@@ -185,17 +189,20 @@ footer {
 
 /* UNIT CONCERT USER */
 .unit_concert_vignette {
-	margin-top: 130px!important;
+	margin-top: 130px !important;
 	width: 60%;
-    margin: auto;
+	margin: auto;
 }
+
 .card-title h2 {
 	text-align: center;
 }
+
 .unit_concert_vignette img {
-    width: 48%;
-    height: auto;
+	width: 48%;
+	height: auto;
 }
+
 .unit_concert_vignette button {
 	justify-content: center;
 }
@@ -204,17 +211,19 @@ footer {
 
 /* MODAL BUY */
 .buy_ticket {
-    align-items: center;
-    min-height: 100px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+	align-items: center;
+	min-height: 100px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
 }
+
 .nbr_tickets_buttons {
 	justify-content: space-between;
-    display: flex;
-    width: 80px;
+	display: flex;
+	width: 80px;
 }
+
 .modal-action {
 	max-height: 100vh;
 }
@@ -276,13 +285,16 @@ footer {
 .admin_index {
 	margin-top: 130px;
 }
+
 .admin_label_edit {
 	display: flex;
 	margin: 15px 0;
 }
+
 .admin_label_edit input {
 	margin-left: 10px;
 }
+
 /* ADMIN INDEX */
 .admin_infos {
 	display: flex;
@@ -321,6 +333,7 @@ footer {
 .admin_concertUnit {
 	margin-top: 130px;
 }
+
 .admin_concert {
 	display: flex;
 	flex-direction: column;
@@ -352,8 +365,8 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	margin-top: 130px;
-    flex-direction: column;
-    align-items: center;
+	flex-direction: column;
+	align-items: center;
 }
 
 .admin_crud_concert button {
@@ -391,8 +404,8 @@ footer {
 	flex-direction: column;
 	align-items: center;
 	margin-top: 130px;
-    flex-direction: column;
-    align-items: center;
+	flex-direction: column;
+	align-items: center;
 }
 
 .admin_crud_category label {
@@ -404,11 +417,13 @@ footer {
 .admin_page {
 	margin-top: 120px;
 }
+
 .admin_users {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+
 .admin_users button {
 	margin: 5px;
 }
@@ -564,6 +579,25 @@ input:checked+.slider:before {
 	border-radius: 50%;
 }
 
+.edit-popup-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.edit-popup {
+	background-color: white;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 
 
@@ -1088,11 +1122,11 @@ input:checked+.slider:before {
 
 
 .profile_user {
-    display: flex;
-    margin-top: 130px;
-    margin: auto;
-    justify-content: center;
-    margin-top: 130px;
+	display: flex;
+	margin-top: 130px;
+	margin: auto;
+	justify-content: center;
+	margin-top: 130px;
 }
 
 .profile_user_comp {
@@ -1105,10 +1139,10 @@ input:checked+.slider:before {
 }
 
 .ticketuser .card {
-    flex-direction: row;
+	flex-direction: row;
 	color: black;
-    background-color: aliceblue;
-    width: 100%;
+	background-color: aliceblue;
+	width: 100%;
 }
 
 .Ticketlistuser {
@@ -1180,4 +1214,5 @@ input:checked+.slider:before {
 .AppHeader {
 	margin-top: 130px;
 }
+
 /* SIGNUP END */
