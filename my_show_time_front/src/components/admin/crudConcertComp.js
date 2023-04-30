@@ -115,18 +115,17 @@ function CrudConcert(props) {
             className="input input-bordered w-full max-w-xs"
           />
 
-          <form fullWidth className="input input-bordered w-full max-w-xs">
-            <Datetime
-              inputProps={{
-                placeholder: "Concert Date & Time",
-                id: "concert_date",
-                value: concert_date,
-              }}
-              onChange={(event) => {
-                setDate(new Date(event));
-              }}
-            />
-          </form>
+          <Datetime
+            inputProps={{
+              placeholder: "Concert Date & Time",
+              id: "concert_date",
+              value: concert_date,
+            }}
+            onChange={(event) => {
+              setDate(new Date(event));
+            }}
+            className="input input-bordered w-full max-w-xs"
+          />
 
           <input
             placeholder="Ticket Price"

@@ -8,7 +8,9 @@ const handleDelete = async (itemId, setDataUsers) => {
     const response = await axios.delete(
       `http://localhost:3000/users/${itemId}`
     );
-    setDataUsers(prevTickets => prevTickets.filter(item => item._id !== itemId));
+    setDataUsers((prevTickets) =>
+      prevTickets.filter((item) => item._id !== itemId)
+    );
   } catch (error) {
     console.error(error);
   }
@@ -61,34 +63,63 @@ function adminUsers() {
 
   return (
     <div className="admin_users">
-      <Link href="/admin"><button className="btn" id="back_button">Back</button></Link>
-      <h1 className="text-3xl font-bold">USERS MANAGER PAGE</h1>
+      <Link href="/admin">
+        <button className="btn" id="back_button">
+          Back
+        </button>
+      </Link>
+      <h1 className="text-3xl font-bold text-white">USERS MANAGER PAGE</h1>
 
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
-              <th><h3>ID</h3></th>
-              <th><h3>FIRSTNAME</h3></th>
-              <th><h3>LASTNAME</h3></th>
-              <th><h3>EMAIL</h3></th>
-              <th><h3>STATUS</h3></th>
+              <th>
+                <h3>ID</h3>
+              </th>
+              <th>
+                <h3>FIRSTNAME</h3>
+              </th>
+              <th>
+                <h3>LASTNAME</h3>
+              </th>
+              <th>
+                <h3>EMAIL</h3>
+              </th>
+              <th>
+                <h3>STATUS</h3>
+              </th>
             </tr>
           </thead>
-          {dataUsers && dataUsers.map((item, i) => (
-            <tbody>
-              <td key={i}>{item._id}</td>
-              <td key={i}>{item.firstname}</td>
-              <td key={i}>{item.lastname}</td>
-              <td key={i}>{item.email}</td>
-              {item.isAdmin == true && (<td key={i}><b>Admin</b></td>)}
-              {item.isAdmin == false && <td key={i}>User</td>}
-              <td>
-                <button className="btn btn-info" onClick={() => handleEdit(item)}>EDIT</button>
-                <button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setDataUsers)}>DELETE</button>
-              </td>
-            </tbody>
-          ))}
+          {dataUsers &&
+            dataUsers.map((item, i) => (
+              <tbody>
+                <td key={i}>{item._id}</td>
+                <td key={i}>{item.firstname}</td>
+                <td key={i}>{item.lastname}</td>
+                <td key={i}>{item.email}</td>
+                {item.isAdmin == true && (
+                  <td key={i}>
+                    <b>Admin</b>
+                  </td>
+                )}
+                {item.isAdmin == false && <td key={i}>User</td>}
+                <td>
+                  <button
+                    className="btn btn-info"
+                    onClick={() => handleEdit(item)}
+                  >
+                    EDIT
+                  </button>
+                  <button
+                    className="btn btn-outline btn-error"
+                    onClick={() => handleDelete(item._id, setDataUsers)}
+                  >
+                    DELETE
+                  </button>
+                </td>
+              </tbody>
+            ))}
         </table>
       </div>
       {showEditForm && (
