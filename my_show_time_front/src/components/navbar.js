@@ -131,10 +131,10 @@ const Navbar = () => {
         
           <div className="navbar_right">
             <form onSubmit={handleSearchSubmit}>
-              <input type="text" name="search" id="search" />
-              <button type="submit" className="btn btn-outline">
+              <input type="text" name="search" id="search" className="mr-10"/>
+              {/* <button type="submit" className="btn btn-outline">
                 Search
-              </button>
+              </button> */}
             </form>
             
             {/* <label className="swap swap-rotate">

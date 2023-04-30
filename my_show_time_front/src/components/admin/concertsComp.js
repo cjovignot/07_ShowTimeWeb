@@ -85,48 +85,24 @@ function adminConcert() {
               <tr>
                 <thead>
                   <tr>
-                    <td>
-                      <h3>CONCERT</h3>
-                    </td>
-                    <td>
-                      <h3>GENRE</h3>
-                    </td>
-                    <td>
-                      <h3>REMAINING TIME</h3>
-                    </td>
-                    <td>
-                      <h3>DATE</h3>
-                    </td>
-                    <td>
-                      <h3>LOCATION</h3>
-                    </td>
-                    <td>
-                      <h3>PRICE</h3>
-                    </td>
-                    <td>
-                      <h3>PLACES</h3>
-                    </td>
-                    <td>
-                      <h3>IMAGE</h3>
-                    </td>
+                    <td><h3>CONCERT</h3></td>
+                    <td><h3>GENRE</h3></td>
+                    <td><h3>REMAINING TIME</h3></td>
+                    <td><h3>DATE</h3></td>
+                    <td><h3>LOCATION</h3></td>
+                    <td><h3>PRICE</h3></td>
+                    <td><h3>PLACES</h3></td>
+                    <td><h3>IMAGE</h3></td>
                   </tr>
                 </thead>
+
                 <Concert concert={item} />
                 <td>
-                  <button
-                    className="btn btn-info"
-                    onClick={() => handleEdit(item._id)}
-                  >
-                    EDIT
-                  </button>
-                  <button
-                    className="btn btn-outline btn-error"
-                    onClick={() => handleDelete(item._id, setdataConcert)}
-                  >
-                    DELETE
-                  </button>
+                  <button className="btn btn-info" onClick={() => handleEdit(item._id)}>EDIT</button>
+                  <button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setdataConcert)}>DELETE</button>
                 </td>
               </tr>
+                
             ))}
         </table>
       </div>

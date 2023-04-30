@@ -41,20 +41,20 @@ const SearchResults = () => {
                 href={{ pathname: "/unit_concert", query: { id: result._id } }}>
                   
                   <div className="product-list">
-                    <div className="card">
+                    <div className="card bg-slate-950">
 
-                      <div className="title">
-                      <p>Band: {result.name}</p>
-                      <p>Artist: {result.artist_name}</p>
-                      </div>
                       <div className="image">
-                      <img src={result.concert_img} width={250} height={200} />
+                          <img src={result.concert_img} width={250} height={200} />
+                      </div>
+                      <div className="title">
+                          <p>{result.name}</p>
+                          <p>{result.artist_name}</p>
                       </div>
                       <div className="text-list">
-                      <p className="text-l font-bold">Location: {result.location}</p>
-                      <p className="text-l font-bold">{dayjs().to(dayjs(result.concert_date))}</p>
-                      <p>{dayjs(result.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
-                      <p className="text-l font-bold">Price: {result.price}€</p>
+                          <p className="text-l font-bold">Location: {result.location}</p>
+                          <p className="text-l font-bold">{dayjs().to(dayjs(result.concert_date))}</p>
+                          <p>{dayjs(result.concert_date).format("ddd, D MMM, YYYY h:mm A")}</p>
+                          <p className="text-l font-bold">Price: {result.price}€</p>
                       </div>
                     </div>
                   </div>
@@ -62,13 +62,13 @@ const SearchResults = () => {
                 </Link>
               </div>
             ))}
-          </div >
+          </div>
         </div>
        
       ) : (
         <p>No results found for "{searchQuery}"</p>
       )}
-       </div>
+    </div>
     
   );
 };

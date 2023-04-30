@@ -38,7 +38,7 @@ function ticketsList() {
   
 
   return (
-    <div className="admin_concert">
+    <div className="admin_concert mb-20">
       <h1 class="text-2xl font-bold">CONCERT TICKET LIST</h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
@@ -55,16 +55,18 @@ function ticketsList() {
             </thead>
             {dataTicketsConcert && dataTicketsConcert.map((item, i) => {
                 return (
-                <tr>
-                    <td key={i}><b>{ item.concertName }</b></td>
-                    <td>{ item.firstname }</td>
-                    <td>{ item.lastname }</td>
-                    <td>{ dayjs().to(dayjs( item.date )) }</td>
-                    <td>{ dayjs(item.date).format('ddd, D MMM, YYYY h:mm A') }</td>
-                    <td>{ item.location }</td>
-                    <td>{ item.price }</td>
-                    <td><button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setTicketsConcert)}>DELETE</button></td>
-                </tr>
+                <tbody>
+                  <tr>
+                      <td key={i}><b>{ item.concertName }</b></td>
+                      <td>{ item.firstname }</td>
+                      <td>{ item.lastname }</td>
+                      <td>{ dayjs().to(dayjs( item.date )) }</td>
+                      <td>{ dayjs(item.date).format('ddd, D MMM, YYYY h:mm A') }</td>
+                      <td>{ item.location }</td>
+                      <td>{ item.price }</td>
+                      <td><button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setTicketsConcert)}>DELETE</button></td>
+                  </tr>
+                </tbody>
                 )})}
         </table>
       </div>

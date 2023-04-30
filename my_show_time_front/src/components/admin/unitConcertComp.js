@@ -48,6 +48,7 @@ function unitConcert() {
                 <td><h3>IMAGE</h3></td>
               </tr>
             </thead>
+            <tbody>
               {dataUnitConcert && <td><b>{ dataUnitConcert.name }</b></td>}
               {dataCategory && <td>{ dataCategory.name }</td>}
               {dataUnitConcert && <td>{ dayjs().to(dayjs( dataUnitConcert.concert_date )) }</td>}
@@ -56,6 +57,7 @@ function unitConcert() {
               {dataUnitConcert && <td>{ dataUnitConcert.price }</td>}
               {dataUnitConcert && <td>{ dataUnitConcert.place_nbr }</td>}
               {dataUnitConcert && <td><img src={dataUnitConcert.concert_img} width="100" /></td>}
+            </tbody>
         </table>
       </div>
     </div>

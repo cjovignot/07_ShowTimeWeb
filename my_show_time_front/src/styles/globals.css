@@ -8,6 +8,9 @@ footer {
 	padding: 15px;
 	margin-top: 30px;
 	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 999;
 }
 
 .main {
@@ -199,8 +202,8 @@ footer {
 }
 
 .unit_concert_vignette img {
-	width: 48%;
-	height: auto;
+	width: auto;
+	height: 500px;
 }
 
 .unit_concert_vignette button {
@@ -358,6 +361,9 @@ footer {
 .admin_concert .btn {
 	margin: 20px 5px;
 }
+.tr_concert_unit_admin {
+	background-color: #606877;
+}
 
 /* CRUD CONCERT */
 .admin_crud_concert {
@@ -367,6 +373,7 @@ footer {
 	margin-top: 130px;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 100px;
 }
 
 .admin_crud_concert button {
@@ -406,6 +413,7 @@ footer {
 	margin-top: 130px;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 100px;
 }
 
 .admin_crud_category label {
@@ -416,6 +424,7 @@ footer {
 /* ADMIN USERS */
 .admin_page {
 	margin-top: 120px;
+	margin-bottom: 100px;
 }
 
 .admin_users {

@@ -35,32 +35,31 @@ function concertCategory({ concert, handleDelete }) {
 
   return (
     <tbody>
-      <td>
-        <Link
-          href={{ pathname: "/admin/concert/", query: { id: concert._id } }}
-        >
-          <b>{concert.name}</b>
-        </Link>
-      </td>
+      <tr>
+        <td>
+          <Link href={{ pathname: "/admin/concert/", query: { id: concert._id } }}><b>{concert.name}</b></Link>
+        </td>
 
-      {categoryName &&
-        categoryName.map((item, i) => {
-          if (item._id === concert.category_id) {
-            // console.log("matched item:", item)
-            return <td key={i}>{item.name}</td>;
-          }
-          return null;
-        })}
+        {categoryName &&
+          categoryName.map((item, i) => {
+            if (item._id === concert.category_id) {
+              // console.log("matched item:", item)
+              return <td key={i}>{item.name}</td>;
+            }
+            return null;
+          })}
+          
+            <td>{dayjs().to(dayjs(concert.concert_date))}</td>
+            <td>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</td>
+            <td>{concert.location}</td>
+            <td>{concert.price} €</td>
+            <td>{remainingPlaces}</td>
 
-      <td>{dayjs().to(dayjs(concert.concert_date))}</td>
-      <td>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</td>
-      <td>{concert.location}</td>
-      <td>{concert.price} €</td>
-      <td>{remainingPlaces}</td>
+            <td>
+              <img src={concert.concert_img} width="100" />
+            </td>
 
-      <td>
-        <img src={concert.concert_img} width="100" />
-      </td>
+      </tr>
     </tbody>
   );
 }
