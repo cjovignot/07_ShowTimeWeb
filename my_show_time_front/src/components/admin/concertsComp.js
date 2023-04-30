@@ -58,7 +58,7 @@ function adminConcert() {
           Back
         </button>
       </Link>
-      <h1 className="text-3xl font-bold">CONCERTS MANAGER PAGE</h1>
+      <h1 className="text-3xl font-bold text-white">CONCERTS MANAGER PAGE</h1>
       <button className="btn btn-primary" onClick={toggleForm}>
         Add Concert
       </button>

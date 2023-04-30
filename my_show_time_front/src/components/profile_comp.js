@@ -62,7 +62,7 @@ const ProfileComp = () => {
   return (
     <div className="profileside mr-10">
       <div className="profiltitle">
-        <h1 className="text-3xl font-bold">My profile</h1>
+        <h1 className="text-3xl font-bold text-white">My profile</h1>
       </div>
       {user && (
         <div className="contentprofil">
@@ -70,7 +70,7 @@ const ProfileComp = () => {
             <form onSubmit={handleSubmit}>
               <table>
                 <tr>
-                  <td className="text-left">
+                  <td className="text-left text-white">
                     <b>First Name</b>
                   </td>
                   <td>
@@ -84,7 +84,7 @@ const ProfileComp = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="text-left">
+                  <td className="text-left text-white">
                     <b>Last Name</b>
                   </td>
                   <td>
@@ -98,7 +98,7 @@ const ProfileComp = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="text-left">
+                  <td className="text-left text-white">
                     <b>Email</b>
                   </td>
                   <td>
@@ -132,7 +132,7 @@ const ProfileComp = () => {
           ) : (
             <>
               {message && <p>{message}</p>}
-              <div className="userprofileinfo">
+              <div className="userprofileinfo text-white">
                 <p>
                   <b> Name: </b>
                   {user.firstname} {user.lastname}
