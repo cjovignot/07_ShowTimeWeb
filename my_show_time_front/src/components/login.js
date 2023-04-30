@@ -86,6 +86,7 @@ const Login = ({ onClose }) => {
                   </p>
                 )}
               </div>
+              <p className="text-black">No account, please SignUp</p>
               <div className="flex justify-between">
                 <button class="btn btn-error mt-6" type="button" onClick={onClose}>Cancel</button>
                 <button className="btn btn-success mt-6" type="submit">SignIn</button>
