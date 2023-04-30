@@ -34,33 +34,33 @@ function concertCategory({ concert, handleDelete }) {
   const remainingPlaces = concert.place_nbr - placeCount;
 
   return (
-    <tbody>
-      <tr>
-        <td>
-          <Link href={{ pathname: "/admin/concert/", query: { id: concert._id } }}><b>{concert.name}</b></Link>
-        </td>
+    <React.Fragment>
+      <td>
+        <Link
+          href={{ pathname: "/admin/concert/", query: { id: concert._id } }}
+        >
+          <b>{concert.name}</b>
+        </Link>
+      </td>
 
-        {categoryName &&
-          categoryName.map((item, i) => {
-            if (item._id === concert.category_id) {
-              // console.log("matched item:", item)
-              return <td key={i}>{item.name}</td>;
-            }
-            return null;
-          })}
-          
-            <td>{dayjs().to(dayjs(concert.concert_date))}</td>
-            <td>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</td>
-            <td>{concert.location}</td>
-            <td>{concert.price} €</td>
-            <td>{remainingPlaces}</td>
+      {categoryName &&
+        categoryName.map((item, i) => {
+          if (item._id === concert.category_id) {
+            return <td key={i}>{item.name}</td>;
+          }
+          return null;
+        })}
 
-            <td>
-              <img src={concert.concert_img} width="100" />
-            </td>
+      <td>{dayjs().to(dayjs(concert.concert_date))}</td>
+      <td>{dayjs(concert.concert_date).format("ddd, D MMM, YYYY h:mm A")}</td>
+      <td>{concert.location}</td>
+      <td>{concert.price} €</td>
+      <td>{remainingPlaces}</td>
 
-      </tr>
-    </tbody>
+      <td>
+        <img src={concert.concert_img} width="100" />
+      </td>
+    </React.Fragment>
   );
 }
 

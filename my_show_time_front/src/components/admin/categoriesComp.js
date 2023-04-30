@@ -45,7 +45,9 @@ function adminCategories() {
       <Link href="/admin">
         <button className="btn">Back</button>
       </Link>
-      <h1 className="text-3xl font-bold">MUSIC GENRES MANAGER PAGE</h1>
+      <h1 className="text-3xl font-bold text-white">
+        MUSIC GENRES MANAGER PAGE
+      </h1>
 
       <button
         className="btn btn-primary"

@@ -4,9 +4,7 @@ import Login from "./login";
 import Profile from "./profile_comp";
 import Cookie from "js-cookie";
 import { useRouter } from "next/router";
-import { themeChange } from 'theme-change';
-
-
+import { themeChange } from "theme-change";
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -17,8 +15,8 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    themeChange(false)
-  }, [])
+    themeChange(false);
+  }, []);
 
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -94,49 +92,72 @@ const Navbar = () => {
     router.push(`/search?artist_name=${artistName}`);
   };
   return (
-
-
     <div>
       <header>
         <nav className="navbar bg-slate-950">
           <div className="navbar_left">
-            
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png" className="logo home-logo" alt="logo"/>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Disque_Vinyl.svg/128px-Disque_Vinyl.svg.png"
+              className="logo home-logo"
+              alt="logo"
+            />
 
-            <Link href="/" className="btn btn-outline">Home</Link>
+            <Link href="/" className="btn btn-outline text-white">
+              Home
+            </Link>
 
             {!user && (
-              <Link href="/Signup" className="btn btn-outline">Sign up</Link>
-              )}
+              <Link href="/Signup" className="btn btn-outline text-white">
+                Sign up
+              </Link>
+            )}
             {user ? (
               <>
-                <div className="btn btn-circle"> 
+                <div className="btn btn-circle text-white">
                   <b>{user.firstname[0]}</b>
                   <b>{user.lastname[0]}</b>
                 </div>
 
                 {/* <div className="profile_buttons"> */}
-                  <Link href="/user_profile" className="btn btn-outline">Profile</Link>
-                  <Link href="" onClick={handleLogout} className="btn btn-outline">Logout</Link>
+                <Link
+                  href="/user_profile"
+                  className="btn btn-outline text-white"
+                >
+                  Profile
+                </Link>
+                <Link
+                  href=""
+                  onClick={handleLogout}
+                  className="btn btn-outline text-white"
+                >
+                  Logout
+                </Link>
                 {/* </div> */}
                 {isAdmin && ( // Add this condition
-                  <Link href="/admin" className="btn btn-outline">Admin</Link>
+                  <Link href="/admin" className="btn btn-outline text-white">
+                    Admin
+                  </Link>
                 )}
               </>
             ) : (
-              <Link href="" onClick={handleLoginToggle} className="btn btn-outline"><div >Login</div></Link>
+              <Link
+                href=""
+                onClick={handleLoginToggle}
+                className="btn btn-outline text-white"
+              >
+                <div>Login</div>
+              </Link>
             )}
           </div>
-          
-        
+
           <div className="navbar_right">
             <form onSubmit={handleSearchSubmit}>
-              <input type="text" name="search" id="search" className="mr-10"/>
+              <input type="text" name="search" id="search" className="mr-10" />
               {/* <button type="submit" className="btn btn-outline">
                 Search
               </button> */}
             </form>
-            
+
             {/* <label className="swap swap-rotate">
               <input type="checkbox" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"/>
               <svg className="swap-on fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
@@ -148,7 +169,6 @@ const Navbar = () => {
 
       {showLogin && <Login onClose={handleLoginClose} />}
       {showProfile && user && <Profile user={user} />}
-
     </div>
   );
 };

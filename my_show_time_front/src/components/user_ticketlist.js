@@ -102,15 +102,15 @@ function user_ticket() {
 
   return (
     <div className="Ticketlistuser">
-      <h1 className="text-3xl font-bold">MY TICKET LIST</h1>
+      <h1 className="text-3xl font-bold text-white">MY TICKET LIST</h1>
 
-      <h2 className="text-2xl font-bold my-4">Coming Soon</h2>
+      <h2 className="text-2xl font-bold my-4 text-white">Coming Soon</h2>
       {ticketSections.comingSoon.map((item, i) => renderTicket(item, i))}
 
-      <h2 className="text-2xl font-bold my-4">Upcoming Events</h2>
+      <h2 className="text-2xl font-bold my-4 text-white">Upcoming Events</h2>
       {ticketSections.upcomingEvents.map((item, i) => renderTicket(item, i))}
 
-      <h2 className="text-2xl font-bold my-4">Passed</h2>
+      <h2 className="text-2xl font-bold my-4 text-white">Passed</h2>
       {ticketSections.passed.map((item, i) => renderTicket(item, i))}
     </div>
   );

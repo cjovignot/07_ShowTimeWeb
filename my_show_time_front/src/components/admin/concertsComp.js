@@ -58,7 +58,7 @@ function adminConcert() {
           Back
         </button>
       </Link>
-      <h1 className="text-3xl font-bold">CONCERTS MANAGER PAGE</h1>
+      <h1 className="text-3xl font-bold text-white">CONCERTS MANAGER PAGE</h1>
       <button className="btn btn-primary" onClick={toggleForm}>
         Add Concert
       </button>
@@ -77,33 +77,61 @@ function adminConcert() {
           onClose={() => setEditFormOpen(false)}
         />
       )}
-
       <div className="overflow-x-auto">
         <table className="table w-full">
-          {dataConcert &&
-            dataConcert.map((item, i) => (
-              <tr>
-                <thead>
-                  <tr>
-                    <td><h3>CONCERT</h3></td>
-                    <td><h3>GENRE</h3></td>
-                    <td><h3>REMAINING TIME</h3></td>
-                    <td><h3>DATE</h3></td>
-                    <td><h3>LOCATION</h3></td>
-                    <td><h3>PRICE</h3></td>
-                    <td><h3>PLACES</h3></td>
-                    <td><h3>IMAGE</h3></td>
-                  </tr>
-                </thead>
-
-                <Concert concert={item} />
-                <td>
-                  <button className="btn btn-info" onClick={() => handleEdit(item._id)}>EDIT</button>
-                  <button className="btn btn-outline btn-error" onClick={() => handleDelete(item._id, setdataConcert)}>DELETE</button>
-                </td>
-              </tr>
-                
-            ))}
+          <thead>
+            <tr>
+              <td>
+                <h3>CONCERT</h3>
+              </td>
+              <td>
+                <h3>GENRE</h3>
+              </td>
+              <td>
+                <h3>REMAINING TIME</h3>
+              </td>
+              <td>
+                <h3>DATE</h3>
+              </td>
+              <td>
+                <h3>LOCATION</h3>
+              </td>
+              <td>
+                <h3>PRICE</h3>
+              </td>
+              <td>
+                <h3>PLACES</h3>
+              </td>
+              <td>
+                <h3>IMAGE</h3>
+              </td>
+              <td>
+                <h3>ACTIONS</h3>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            {dataConcert &&
+              dataConcert.map((item, i) => (
+                <tr key={i}>
+                  <Concert concert={item} />
+                  <td>
+                    <button
+                      className="btn btn-info"
+                      onClick={() => handleEdit(item._id)}
+                    >
+                      EDIT
+                    </button>
+                    <button
+                      className="btn btn-outline btn-error"
+                      onClick={() => handleDelete(item._id, setdataConcert)}
+                    >
+                      DELETE
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
         </table>
       </div>
     </div>
