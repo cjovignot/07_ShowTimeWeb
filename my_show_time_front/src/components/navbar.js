@@ -126,7 +126,7 @@ const Navbar = () => {
                   Profile
                 </Link>
                 <Link
-                  href=""
+                  href="/"
                   onClick={handleLogout}
                   className="btn btn-outline text-white"
                 >
