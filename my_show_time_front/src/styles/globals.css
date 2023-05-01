@@ -88,7 +88,7 @@ footer {
 .product-list .card {
 	/* background-color: #f4f4f4; */
 	margin: 15px;
-	box-shadow: 0px 10px 5px #1a1818;
+	/* box-shadow: 0px 10px 5px #1a1818; */
 }
 
 .card img {
@@ -389,7 +389,7 @@ footer {
 	width: 200px;
 }
 
-.rdtPicker {
+/* .rdtPicker {
 	display: none;
 	position: absolute;
 	min-width: 250px;
@@ -403,7 +403,7 @@ footer {
 
 .rdt input {
 	background-color: none !important;
-}
+} */
 
 /* CRUD CATEGORIES */
 .admin_crud_category {
