@@ -72,15 +72,15 @@ function CrudConcert(props) {
 
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <form className="admin_crud_concert" onSubmit={handleSubmit}>
+      <div className="w-96 bg-base-100 shadow-xl rounded-3xl">
+        <form className="admin_crud_concert pt-10" onSubmit={handleSubmit}>
           <input
             placeholder="Concert Name"
             type="text"
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8"
           />
 
           <input
@@ -89,14 +89,14 @@ function CrudConcert(props) {
             id="artist_name"
             value={artist_name}
             onChange={(event) => setArtistName(event.target.value)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8"
           />
 
           <select
             id="category_id"
             value={category_id}
             onChange={(event) => setCategoryId(event.target.value)}
-            className="select select-bordered select-sm w-full max-w-xs"
+            className="select select-bordered select-sm w-full max-w-xs h-8"
           >
             <option value="">Select Category</option>
             {categories.map((category) => (
@@ -112,7 +112,7 @@ function CrudConcert(props) {
             id="location"
             value={location}
             onChange={(event) => setLocation(event.target.value)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8"
           />
 
           <Datetime
@@ -124,7 +124,7 @@ function CrudConcert(props) {
             onChange={(event) => {
               setDate(new Date(event));
             }}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8 m-1"
           />
 
           <input
@@ -133,7 +133,7 @@ function CrudConcert(props) {
             id="price"
             value={price}
             onChange={(event) => setPrice(event.target.value)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8"
           ></input>
 
           <input
@@ -142,7 +142,7 @@ function CrudConcert(props) {
             id="place_nbr"
             value={place_nbr}
             onChange={(event) => setPlaceNbr(event.target.value)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8"
           ></input>
 
           <input
@@ -150,7 +150,7 @@ function CrudConcert(props) {
             id="concert_img"
             accept="image/*"
             onChange={(event) => handleImageUpload(event)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs h-8"
           />
           <button className="btn btn-success" type="submit">
             Save

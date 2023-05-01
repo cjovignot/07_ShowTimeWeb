@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Cookie from "js-cookie";
+import Link from "next/link";
 
 const Login = ({ onClose }) => {
   const [email, setEmail] = useState("");
@@ -86,7 +87,7 @@ const Login = ({ onClose }) => {
                   </p>
                 )}
               </div>
-              <p className="text-black">No account, please SignUp</p>
+              <p className="text-black">No account, please <Link href="/Signup"><b>SignUp</b></Link></p>
               <div className="flex justify-between">
                 <button class="btn btn-error mt-6" type="button" onClick={onClose}>Cancel</button>
                 <button className="btn btn-success mt-6" type="submit">SignIn</button>
